@@ -11,3 +11,16 @@ import androidx.annotation.LayoutRes
 fun ViewGroup.inflate(@LayoutRes layout: Int, attachToRoof: Boolean = false): View = let {
     LayoutInflater.from(context).inflate(layout, it, attachToRoof)
 }
+
+fun View.updateMargin(
+    left: Int? = (layoutParams as? ViewGroup.MarginLayoutParams)?.leftMargin,
+    top: Int? = (layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin,
+    right: Int? = (layoutParams as? ViewGroup.MarginLayoutParams)?.rightMargin,
+    bottom: Int? = (layoutParams as? ViewGroup.MarginLayoutParams)?.bottomMargin
+) {
+    if (left == null || top == null || right == null || bottom == null) return
+
+    val params = layoutParams as? ViewGroup.MarginLayoutParams ?: return
+    params.setMargins(left, top, right, bottom)
+    layoutParams = params
+}
