@@ -12,4 +12,11 @@
     <dimen name="header_action_space">8dp</dimen>
     <dimen name="header_horizontal_space">8dp</dimen>
 
+    <dimen name="card_no_elevation">0dp</dimen>
+    <dimen name="card_radius">8dp</dimen>
+
+    <dimen name="button_text">18sp</dimen>
+    <dimen name="button_vertical_space">16dp</dimen>
+    <dimen name="button_horizontal_space">48dp</dimen>
+
 </resources>

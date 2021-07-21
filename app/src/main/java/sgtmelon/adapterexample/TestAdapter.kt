@@ -20,7 +20,7 @@ class TestAdapter(private val callback: Callback) : ParentAdapter<TestItem, Test
         when (val item = list.getOrNull(position)) {
             is TestItem.Header -> (holder as? HeaderHolder)?.bind(item, callback)
             is TestItem.Space -> (holder as? SpaceHolder)?.bind(item)
-            is TestItem.Button -> (holder as? ButtonHolder)?.bind(item)
+            is TestItem.Button -> (holder as? ButtonHolder)?.bind(item, callback)
             is TestItem.Card.Small -> (holder as? CardSmallHolder)?.bind(item)
             is TestItem.Card.Medium -> (holder as? CardMediumHolder)?.bind(item)
             is TestItem.Card.Big -> (holder as? CardBigHolder)?.bind(item)
@@ -34,6 +34,7 @@ class TestAdapter(private val callback: Callback) : ParentAdapter<TestItem, Test
 
     override fun getItemViewType(position: Int): Int = list[position].type
 
-    interface Callback : HeaderHolder.Callback
+    interface Callback : HeaderHolder.Callback,
+        ButtonHolder.Callback
 
 }
