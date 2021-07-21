@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Adapter Example</string>
+
+
+    <string name="header_first">Header first</string>
+    <string name="header_second">Header second</string>
+    <string name="header_third">Header third</string>
+    <string name="header_fourth">Header fourth</string>
+
+    <string name="action_second">Action second</string>
+    <string name="action_fourth">Action fourth</string>
+
+    <string name="button_first">Button first</string>
+    <string name="button_second">Button second</string>
+    <string name="button_third">Button third</string>
+
+</resources>
