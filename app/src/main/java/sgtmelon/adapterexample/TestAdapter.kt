@@ -5,7 +5,7 @@ import sgtmelon.adapterexample.holder.*
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.model.TestType
 
-class TestAdapter : ParentAdapter<TestItem, TestHolder>() {
+class TestAdapter(private val callback: Callback) : ParentAdapter<TestItem, TestHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when (viewType) {
         TestType.HEADER -> HeaderHolder(parent.inflate(R.layout.item_header))
@@ -18,7 +18,7 @@ class TestAdapter : ParentAdapter<TestItem, TestHolder>() {
 
     override fun onBindViewHolder(holder: TestHolder, position: Int) {
         when (val item = list.getOrNull(position)) {
-            is TestItem.Header -> (holder as? HeaderHolder)?.bind(item)
+            is TestItem.Header -> (holder as? HeaderHolder)?.bind(item, callback)
             is TestItem.Space -> (holder as? SpaceHolder)?.bind(item)
             is TestItem.Button -> (holder as? ButtonHolder)?.bind(item)
             is TestItem.Card.Small -> (holder as? CardSmallHolder)?.bind(item)
@@ -33,5 +33,7 @@ class TestAdapter : ParentAdapter<TestItem, TestHolder>() {
     }
 
     override fun getItemViewType(position: Int): Int = list[position].type
+
+    interface Callback : HeaderHolder.Callback
 
 }

@@ -5,4 +5,11 @@
     <dimen name="space_medium">16dp</dimen>
     <dimen name="space_big">24dp</dimen>
 
+    <dimen name="recycler_horizontal_space">8dp</dimen>
+
+    <dimen name="header_text">20sp</dimen>
+    <dimen name="header_action_text">16sp</dimen>
+    <dimen name="header_action_space">8dp</dimen>
+    <dimen name="header_horizontal_space">8dp</dimen>
+
 </resources>

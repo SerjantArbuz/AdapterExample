@@ -5,4 +5,7 @@
     <color name="button_second">#b3cde0</color>
     <color name="button_third">#fff4e6</color>
 
+    <color name="text_primary">#1E1E1E</color>
+    <color name="text_accent">#30ADDF</color>
+
 </resources>
