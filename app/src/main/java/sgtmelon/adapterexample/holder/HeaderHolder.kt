@@ -2,6 +2,7 @@ package sgtmelon.adapterexample.holder
 
 import android.view.View
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.R
 
 import sgtmelon.adapterexample.TestAdapter
@@ -10,14 +11,12 @@ import sgtmelon.adapterexample.model.TestItem
 /**
  * Holder for [TestItem.Header] inside [TestAdapter].
  */
-class HeaderHolder(itemView: View): TestHolder(itemView) {
+class HeaderHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
     private val titleText = itemView.findViewById<TextView>(R.id.header_title_text)
     private val actionText = itemView.findViewById<TextView>(R.id.header_action_text)
 
     fun bind(item: TestItem.Header, callback: Callback) {
-        val context = itemView.context
-
         titleText.text = context.getString(item.titleId)
 
         if (item.actionId != null) {

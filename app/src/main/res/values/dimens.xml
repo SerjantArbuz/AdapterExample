@@ -20,8 +20,16 @@
 
     <dimen name="small_image">48dp</dimen>
     <dimen name="small_image_space">8dp</dimen>
+    <dimen name="medium_image">68dp</dimen>
+    <dimen name="medium_image_space">12dp</dimen>
 
-    <dimen name="card_main_text">18sp</dimen>
-    <dimen name="card_second_text">16sp</dimen>
+    <dimen name="item_title_text">18sp</dimen>
+    <dimen name="item_subtitle_text">16sp</dimen>
+
+    <dimen name="item_small_text_space">2dp</dimen>
+    <dimen name="item_medium_text_space">4dp</dimen>
+
+    <dimen name="item_medium_horizontal_space">16dp</dimen>
+    <dimen name="item_medium_vertical_space">8dp</dimen>
 
 </resources>

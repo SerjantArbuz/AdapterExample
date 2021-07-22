@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_small_container"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/item_small_image"
         android:layout_width="@dimen/small_image"
         android:layout_height="@dimen/small_image"
         android:contentDescription="@null"
@@ -21,16 +23,19 @@
         android:layout_weight="1">
         
         <TextView
+            android:id="@+id/item_small_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/card_main_text"
+            android:textSize="@dimen/item_title_text"
+            android:layout_marginBottom="@dimen/item_small_text_space"
             android:textColor="@color/text_primary"
             tools:text="@string/header_first"/>
 
         <TextView
+            android:id="@+id/item_small_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/card_second_text"
+            android:textSize="@dimen/item_subtitle_text"
             android:textColor="@color/text_secondary"
             tools:text="@string/header_second"/>
         

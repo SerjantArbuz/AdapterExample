@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_medium_container"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    tools:layout_gravity="center"
+    android:paddingHorizontal="@dimen/item_medium_horizontal_space"
+    android:paddingVertical="@dimen/item_medium_vertical_space"
+    android:orientation="vertical"
+    tools:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/item_medium_image"
+        android:layout_width="@dimen/medium_image"
+        android:layout_height="@dimen/medium_image"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        tools:background="@color/black"
+        android:layout_margin="@dimen/medium_image_space"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/item_medium_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_title_text"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_marginBottom="@dimen/item_medium_text_space"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            tools:text="@string/header_first"/>
+
+        <TextView
+            android:id="@+id/item_medium_subtitle"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="@dimen/item_subtitle_text"
+            android:textColor="@color/text_secondary"
+            tools:text="@string/header_second"/>
+
+    </LinearLayout>
+
+</LinearLayout>
