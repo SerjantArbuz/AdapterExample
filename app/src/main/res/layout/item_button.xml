@@ -5,7 +5,6 @@
     android:id="@+id/button_card_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/recycler_horizontal_space"
     app:cardCornerRadius="@dimen/card_small_radius"
     app:cardElevation="@dimen/card_no_elevation"
     tools:cardBackgroundColor="@color/button_second">
@@ -21,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingVertical="@dimen/button_vertical_space"
+            android:padding="@dimen/button_content_space"
             android:textAllCaps="true"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/button_text"

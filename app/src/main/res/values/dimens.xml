@@ -18,7 +18,7 @@
     <dimen name="card_big_radius">16dp</dimen>
 
     <dimen name="button_text">18sp</dimen>
-    <dimen name="button_vertical_space">16dp</dimen>
+    <dimen name="button_content_space">16dp</dimen>
 
     <dimen name="small_image">48dp</dimen>
     <dimen name="small_image_space">8dp</dimen>

@@ -1,6 +1,7 @@
 package sgtmelon.adapterexample.holder
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +15,7 @@ import sgtmelon.adapterexample.model.TestItem
 class ButtonHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
     private val cardContainer = itemView.findViewById<CardView>(R.id.button_card_container)
-    private val clickContainer = itemView.findViewById<CardView>(R.id.button_click_container)
+    private val clickContainer = itemView.findViewById<ViewGroup>(R.id.button_click_container)
     private val textView = itemView.findViewById<TextView>(R.id.button_text)
 
     fun bind(item: TestItem.Button, callback: Callback) {

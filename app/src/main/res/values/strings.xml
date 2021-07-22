@@ -13,5 +13,6 @@
     <string name="button_first">Button first</string>
     <string name="button_second">Button second</string>
     <string name="button_third">Button third</string>
+    <string name="button_fourth">Button fourth</string>
 
 </resources>

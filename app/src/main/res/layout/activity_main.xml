@@ -8,7 +8,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycler"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/recycler_horizontal_space"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_small"
+        tools:itemCount="3"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

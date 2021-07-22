@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:layout_marginHorizontal="@dimen/recycler_horizontal_space"
-
+    android:layout_marginHorizontal="@dimen/header_horizontal_space"
     android:layout_height="wrap_content">
 
     <TextView
