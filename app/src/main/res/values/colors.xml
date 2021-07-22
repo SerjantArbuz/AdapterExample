@@ -6,6 +6,7 @@
     <color name="button_third">#ECE2D5</color>
 
     <color name="text_primary">#1E1E1E</color>
+    <color name="text_secondary">#656464</color>
     <color name="text_accent">#30ADDF</color>
 
 </resources>

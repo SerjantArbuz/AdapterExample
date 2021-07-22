@@ -17,6 +17,11 @@
 
     <dimen name="button_text">18sp</dimen>
     <dimen name="button_vertical_space">16dp</dimen>
-    <dimen name="button_horizontal_space">48dp</dimen>
+
+    <dimen name="small_image">48dp</dimen>
+    <dimen name="small_image_space">8dp</dimen>
+
+    <dimen name="card_main_text">18sp</dimen>
+    <dimen name="card_second_text">16sp</dimen>
 
 </resources>

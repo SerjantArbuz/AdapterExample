@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="@dimen/small_image"
+        android:layout_height="@dimen/small_image"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        tools:background="@color/black"
+        android:layout_margin="@dimen/small_image_space"/>
+    
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="1">
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_main_text"
+            android:textColor="@color/text_primary"
+            tools:text="@string/header_first"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_second_text"
+            android:textColor="@color/text_secondary"
+            tools:text="@string/header_second"/>
+        
+    </LinearLayout>
+
+</LinearLayout>
