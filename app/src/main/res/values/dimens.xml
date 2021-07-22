@@ -13,7 +13,9 @@
     <dimen name="header_horizontal_space">8dp</dimen>
 
     <dimen name="card_no_elevation">0dp</dimen>
-    <dimen name="card_radius">8dp</dimen>
+    <dimen name="card_small_radius">8dp</dimen>
+    <dimen name="card_medium_radius">12dp</dimen>
+    <dimen name="card_big_radius">16dp</dimen>
 
     <dimen name="button_text">18sp</dimen>
     <dimen name="button_vertical_space">16dp</dimen>
@@ -31,5 +33,6 @@
 
     <dimen name="item_medium_horizontal_space">16dp</dimen>
     <dimen name="item_medium_vertical_space">8dp</dimen>
+    <dimen name="item_big_vertical_space">8dp</dimen>
 
 </resources>

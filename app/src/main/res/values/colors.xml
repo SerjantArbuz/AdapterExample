@@ -9,4 +9,7 @@
     <color name="text_secondary">#656464</color>
     <color name="text_accent">#30ADDF</color>
 
+    <color name="load_holder">#70B9C6</color>
+    <color name="load_error">#C67070</color>
+
 </resources>

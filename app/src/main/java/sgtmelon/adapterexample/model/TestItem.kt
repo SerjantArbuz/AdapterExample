@@ -36,20 +36,15 @@ sealed class TestItem(@TestType val type: Int) {
         object Third : Button(R.string.button_third, R.color.button_third)
     }
 
-    sealed class Card(
-        val imgUrl: String,
-        val title: String,
-        val subtitle: String,
-        @TestType type: Int,
-    ) : TestItem(type) {
-        class Small(imgUrl: String, title: String, subtitle: String) :
-            Card(imgUrl, title, subtitle, TestType.CARD_SMALL)
+    sealed class Card(val imageUrl: String, @TestType type: Int, ) : TestItem(type) {
 
-        class Medium(imgUrl: String, title: String, subtitle: String) :
-            Card(imgUrl, title, subtitle, TestType.CARD_MEDIUM)
+        class Small(imageUrl: String, val title: String, val subtitle: String) :
+            Card(imageUrl, TestType.CARD_SMALL)
 
-        class Big(imgUrl: String, title: String, subtitle: String) :
-            Card(imgUrl, title, subtitle, TestType.CARD_BIG)
+        class Medium(imageUrl: String, val title: String, val subtitle: String) :
+            Card(imageUrl, TestType.CARD_MEDIUM)
+
+        class Big(imageUrl: String) : Card(imageUrl, TestType.CARD_BIG)
     }
 
 }
