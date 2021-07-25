@@ -6,13 +6,14 @@
     android:background="?attr/selectableItemBackground"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
+    android:layout_marginHorizontal="@dimen/item_small_horizontal_space"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/small_image"
         android:layout_height="@dimen/small_image"
         app:cardElevation="@dimen/card_no_elevation"
-        app:cardCornerRadius="@dimen/card_small_radius"
+        app:cardCornerRadius="@dimen/item_small_radius"
         android:layout_margin="@dimen/small_image_space">
 
         <ImageView

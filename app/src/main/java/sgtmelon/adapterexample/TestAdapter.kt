@@ -14,9 +14,9 @@ class TestAdapter(
         TestType.HEADER -> HeaderHolder(parent.inflate(R.layout.item_header))
         TestType.SPACE -> SpaceHolder(parent.inflate(R.layout.item_space))
         TestType.BUTTON -> ButtonHolder(parent.inflate(R.layout.item_button))
-        TestType.CARD_SMALL -> CardSmallHolder(parent.inflate(R.layout.item_small))
-        TestType.CARD_MEDIUM -> CardMediumHolder(parent.inflate(R.layout.item_medium))
-        else -> CardBigHolder(parent.inflate(R.layout.item_big))
+        TestType.CARD_SMALL -> SmallItemHolder(parent.inflate(R.layout.item_small))
+        TestType.CARD_MEDIUM -> MediumItemHolder(parent.inflate(R.layout.item_medium))
+        else -> BigItemHolder(parent.inflate(R.layout.item_big))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -24,9 +24,9 @@ class TestAdapter(
             is TestItem.Header -> (holder as? HeaderHolder)?.bind(item, callback)
             is TestItem.Space -> (holder as? SpaceHolder)?.bind(item)
             is TestItem.Button -> (holder as? ButtonHolder)?.bind(item, callback)
-            is TestItem.Card.Small -> (holder as? CardSmallHolder)?.bind(item, callback)
-            is TestItem.Card.Medium -> (holder as? CardMediumHolder)?.bind(item, callback)
-            is TestItem.Card.Big -> (holder as? CardBigHolder)?.bind(item, callback)
+            is TestItem.Item.Small -> (holder as? SmallItemHolder)?.bind(item, callback)
+            is TestItem.Item.Medium -> (holder as? MediumItemHolder)?.bind(item, callback)
+            is TestItem.Item.Big -> (holder as? BigItemHolder)?.bind(item, callback)
         }
     }
 
@@ -39,8 +39,8 @@ class TestAdapter(
 
     interface Callback : HeaderHolder.Callback,
         ButtonHolder.Callback,
-            CardSmallHolder.Callback,
-            CardMediumHolder.Callback,
-            CardBigHolder.Callback
+            SmallItemHolder.Callback,
+            MediumItemHolder.Callback,
+            BigItemHolder.Callback
 
 }

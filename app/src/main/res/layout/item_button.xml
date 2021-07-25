@@ -5,7 +5,7 @@
     android:id="@+id/button_card_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/card_small_radius"
+    app:cardCornerRadius="@dimen/item_small_radius"
     app:cardElevation="@dimen/card_no_elevation"
     android:layout_marginHorizontal="@dimen/button_horizontal_space"
     tools:cardBackgroundColor="@color/button_second">
@@ -29,6 +29,14 @@
             android:textSize="@dimen/button_text"
             android:textStyle="bold"
             tools:text="@string/button_first" />
+
+        <ImageView
+            android:id="@+id/button_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:alpha="0.25"
+            android:scaleType="centerCrop"/>
 
     </FrameLayout>
 

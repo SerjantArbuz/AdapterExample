@@ -14,9 +14,10 @@
     <dimen name="header_horizontal_space">10dp</dimen>
 
     <dimen name="card_no_elevation">0dp</dimen>
-    <dimen name="card_small_radius">8dp</dimen>
-    <dimen name="card_medium_radius">12dp</dimen>
-    <dimen name="card_big_radius">16dp</dimen>
+    <dimen name="item_small_radius">8dp</dimen>
+    <dimen name="item_small_horizontal_space">2dp</dimen>
+    <dimen name="item_medium_radius">12dp</dimen>
+    <dimen name="item_big_radius">16dp</dimen>
 
     <dimen name="button_text">18sp</dimen>
     <dimen name="button_content_space">16dp</dimen>
