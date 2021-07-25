@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="space_small">8dp</dimen>
-    <dimen name="space_medium">16dp</dimen>
-    <dimen name="space_big">24dp</dimen>
+    <dimen name="space_small">4dp</dimen>
+    <dimen name="space_medium">8dp</dimen>
+    <dimen name="space_big">16dp</dimen>
 
-    <dimen name="recycler_horizontal_space">8dp</dimen>
+    <dimen name="recycler_horizontal_space">6dp</dimen>
+    <dimen name="recycler_vertical_space">12dp</dimen>
 
     <dimen name="header_text">20sp</dimen>
     <dimen name="header_action_text">16sp</dimen>
     <dimen name="header_action_space">8dp</dimen>
-    <dimen name="header_horizontal_space">8dp</dimen>
+    <dimen name="header_horizontal_space">10dp</dimen>
 
     <dimen name="card_no_elevation">0dp</dimen>
     <dimen name="card_small_radius">8dp</dimen>
@@ -19,6 +20,7 @@
 
     <dimen name="button_text">18sp</dimen>
     <dimen name="button_content_space">16dp</dimen>
+    <dimen name="button_horizontal_space">2dp</dimen>
 
     <dimen name="small_image">48dp</dimen>
     <dimen name="small_image_space">8dp</dimen>

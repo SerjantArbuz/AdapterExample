@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/card_small_radius"
     app:cardElevation="@dimen/card_no_elevation"
+    android:layout_marginHorizontal="@dimen/button_horizontal_space"
     tools:cardBackgroundColor="@color/button_second">
 
     <FrameLayout
@@ -20,6 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:singleLine="true"
+            android:ellipsize="end"
             android:padding="@dimen/button_content_space"
             android:textAllCaps="true"
             android:textColor="@color/text_primary"

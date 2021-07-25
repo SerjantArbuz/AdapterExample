@@ -10,6 +10,7 @@
         android:id="@+id/main_recycler"
         android:clipToPadding="false"
         android:paddingHorizontal="@dimen/recycler_horizontal_space"
+        android:paddingVertical="@dimen/recycler_vertical_space"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_small"

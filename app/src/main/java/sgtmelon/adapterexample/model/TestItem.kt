@@ -35,6 +35,8 @@ sealed class TestItem(@TestType val type: Int) {
         object Second : Button(R.string.button_second, R.color.button_second)
         object Third : Button(R.string.button_third, R.color.button_third)
         object Fourth : Button(R.string.button_fourth, R.color.button_fourth)
+        object Fifth : Button(R.string.button_fifth, R.color.button_fifth)
+        object Sixth : Button(R.string.button_sixth, R.color.button_sixth)
     }
 
     sealed class Card(val imageUrl: String, @TestType type: Int, ) : TestItem(type) {

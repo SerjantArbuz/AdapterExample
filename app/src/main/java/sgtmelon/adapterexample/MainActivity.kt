@@ -2,6 +2,7 @@ package sgtmelon.adapterexample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.model.TestItem
@@ -21,7 +22,24 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
     }
 
     private fun setupRecycler() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val spanCount = 6
+        val layoutManager = GridLayoutManager(this, spanCount)
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                val item = adapter.getItemList().getOrNull(position) ?: return spanCount
+
+                return when (item) {
+                    is TestItem.Header -> spanCount
+                    is TestItem.Space -> spanCount
+                    is TestItem.Button -> spanCount / 3
+                    is TestItem.Card.Small -> spanCount
+                    is TestItem.Card.Medium -> spanCount / 3
+                    is TestItem.Card.Big -> spanCount / 2
+                }
+            }
+        }
+
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
     }
 
@@ -29,23 +47,26 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
         val list = mutableListOf<TestItem>()
 
         list.add(TestItem.Header.First)
-        list.add(TestItem.Space.Small)
+        list.add(TestItem.Space.Medium)
         list.add(TestItem.Button.First)
-
-        list.add(TestItem.Space.Medium)
-        list.add(TestItem.Header.Second)
-        list.add(TestItem.Space.Small)
         list.add(TestItem.Button.Second)
-
-        list.add(TestItem.Space.Medium)
-        list.add(TestItem.Header.Third)
-        list.add(TestItem.Space.Small)
         list.add(TestItem.Button.Third)
-
-        list.add(TestItem.Space.Medium)
-        list.add(TestItem.Header.Fourth)
         list.add(TestItem.Space.Small)
         list.add(TestItem.Button.Fourth)
+        list.add(TestItem.Button.Fifth)
+        list.add(TestItem.Button.Sixth)
+
+        list.add(TestItem.Space.Big)
+        list.add(TestItem.Header.Second)
+        list.add(TestItem.Space.Medium)
+//
+//        list.add(TestItem.Space.Medium)
+//        list.add(TestItem.Header.Third)
+//        list.add(TestItem.Space.Small)
+//
+//        list.add(TestItem.Space.Medium)
+//        list.add(TestItem.Header.Fourth)
+//        list.add(TestItem.Space.Small)
 
         adapter.setList(list).notifyDataSetChanged()
     }
