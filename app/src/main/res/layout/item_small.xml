@@ -37,6 +37,7 @@
             android:id="@+id/item_small_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/SingleLine"
             android:textSize="@dimen/item_title_text"
             android:layout_marginBottom="@dimen/item_small_text_space"
             android:textColor="@color/text_primary"
@@ -46,6 +47,7 @@
             android:id="@+id/item_small_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/SingleLine"
             android:textSize="@dimen/item_subtitle_text"
             android:textColor="@color/text_secondary"
             tools:text="@string/header_second"/>

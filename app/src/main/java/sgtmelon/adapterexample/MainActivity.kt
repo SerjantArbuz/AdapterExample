@@ -99,12 +99,12 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
             "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2",
             "https://images.unsplash.com/photo-1496483648148-47c686dc86a8"
         )
-
+        val longText = "long long long long"
         repeat(imageList.size) {
             list.add(TestItem.Item.Small(
                 imageList[it],
-                title = "Small title: $it",
-                subtitle = "Small subtitle: $it"
+                title = "Small $longText title: $it",
+                subtitle = "Small $longText subtitle: $it"
             ))
         }
 
@@ -114,14 +114,14 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
     private fun getMediumItemSection(): List<TestItem> {
         val list = mutableListOf<TestItem>()
 
-        list.add(TestItem.Space.Medium)
+        list.add(TestItem.Space.Big)
         list.add(TestItem.Header.Third)
         list.add(TestItem.Space.Small)
 
         val imageList = listOf(
-            "https://images.unsplash.com/photo-1442458017215-285b83f65851",
-            "https://images.unsplash.com/photo-1495231916356-a86217efff12",
-            "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2"
+            "https://images.unsplash.com/photo-1552483777-6d0e5cc7e09f",
+            "https://images.unsplash.com/photo-1541410813355-b423ffce2a22",
+            "https://images.unsplash.com/photo-1597271479291-265397b445c9"
         )
 
         repeat(imageList.size) {
@@ -138,9 +138,20 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
     private fun getBigItemSection(): List<TestItem> {
         val list = mutableListOf<TestItem>()
 
-        list.add(TestItem.Space.Medium)
+        list.add(TestItem.Space.Big)
         list.add(TestItem.Header.Fourth)
         list.add(TestItem.Space.Medium)
+
+        val imageList = listOf(
+            "https://images.unsplash.com/photo-1439405326854-014607f694d7",
+            "https://images.unsplash.com/photo-1527482797697-8795b05a13fe",
+            "https://images.unsplash.com/photo-1500674425229-f692875b0ab7",
+            "https://images.unsplash.com/photo-1518084132696-ae8c27911102"
+        )
+
+        repeat(imageList.size) {
+            list.add(TestItem.Item.Big(imageList[it]))
+        }
 
         return list
     }
