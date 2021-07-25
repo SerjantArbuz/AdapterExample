@@ -22,18 +22,26 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
 
     private fun setupRecycler() {
         val spanCount = 6
+
+        /**
+         * Variables for better understanding.
+         */
+        val oneColumn = spanCount
+        val twoColumns = spanCount / 2
+        val threeColumns = spanCount / 3
+
         val layoutManager = GridLayoutManager(this, spanCount)
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 val item = adapter.getItemList().getOrNull(position) ?: return spanCount
 
                 return when (item) {
-                    is TestItem.Header -> spanCount
-                    is TestItem.Space -> spanCount
-                    is TestItem.Button -> spanCount / 3
-                    is TestItem.Item.Small -> spanCount
-                    is TestItem.Item.Medium -> spanCount / 3
-                    is TestItem.Item.Big -> spanCount / 2
+                    is TestItem.Header -> oneColumn
+                    is TestItem.Space -> oneColumn
+                    is TestItem.Button -> threeColumns
+                    is TestItem.Item.Small -> oneColumn
+                    is TestItem.Item.Medium -> threeColumns
+                    is TestItem.Item.Big -> twoColumns
                 }
             }
         }
@@ -89,11 +97,10 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
             "https://images.unsplash.com/photo-1442458017215-285b83f65851",
             "https://images.unsplash.com/photo-1495231916356-a86217efff12",
             "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2",
-            "https://images.unsplash.com/photo-1496483648148-47c686dc86a8",
-            "https://images.unsplash.com/photo-1503652601-557d07733ddc"
+            "https://images.unsplash.com/photo-1496483648148-47c686dc86a8"
         )
 
-        repeat(times = (3..5).random()) {
+        repeat(imageList.size) {
             list.add(TestItem.Item.Small(
                 imageList[it],
                 title = "Small title: $it",
@@ -107,9 +114,23 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
     private fun getMediumItemSection(): List<TestItem> {
         val list = mutableListOf<TestItem>()
 
-        list.add(TestItem.Space.Big)
-        list.add(TestItem.Header.Third)
         list.add(TestItem.Space.Medium)
+        list.add(TestItem.Header.Third)
+        list.add(TestItem.Space.Small)
+
+        val imageList = listOf(
+            "https://images.unsplash.com/photo-1442458017215-285b83f65851",
+            "https://images.unsplash.com/photo-1495231916356-a86217efff12",
+            "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2"
+        )
+
+        repeat(imageList.size) {
+            list.add(TestItem.Item.Medium(
+                imageList[it],
+                title = "Medium title: $it",
+                subtitle = "Medium subtitle: $it"
+            ))
+        }
 
         return list
     }
@@ -117,7 +138,7 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
     private fun getBigItemSection(): List<TestItem> {
         val list = mutableListOf<TestItem>()
 
-        list.add(TestItem.Space.Big)
+        list.add(TestItem.Space.Medium)
         list.add(TestItem.Header.Fourth)
         list.add(TestItem.Space.Medium)
 

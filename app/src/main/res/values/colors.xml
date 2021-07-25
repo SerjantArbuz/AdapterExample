@@ -2,11 +2,11 @@
 <resources>
 
     <color name="button_first">#eec9d2</color>
-    <color name="button_second">#b3cde0</color>
+    <color name="button_second">#C6E0F3</color>
     <color name="button_third">#ECE2D5</color>
     <color name="button_fourth">#DCC3DF</color>
-    <color name="button_fifth">#F1C88A</color>
-    <color name="button_sixth">#B0ECDA</color>
+    <color name="button_fifth">#EFD1A4</color>
+    <color name="button_sixth">#C2E3D9</color>
 
     <color name="text_primary">#1E1E1E</color>
     <color name="text_secondary">#656464</color>

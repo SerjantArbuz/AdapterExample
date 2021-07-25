@@ -8,35 +8,45 @@
 
     <LinearLayout
         android:id="@+id/item_medium_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="?attr/selectableItemBackground"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/item_medium_horizontal_space"
-        android:paddingVertical="@dimen/item_medium_vertical_space"
+        android:padding="@dimen/item_medium_space"
         tools:ignore="UselessParent">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/medium_image"
-            android:layout_height="@dimen/medium_image"
-            android:layout_margin="@dimen/medium_image_space"
-            app:cardCornerRadius="@dimen/item_medium_radius"
-            app:cardElevation="@dimen/card_no_elevation">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/item_medium_image"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:scaleType="centerCrop"
-                tools:background="@color/black" />
+                android:layout_height="0dp"
+                app:cardCornerRadius="@dimen/item_medium_radius"
+                app:cardElevation="@dimen/card_no_elevation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/item_medium_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    tools:background="@color/black" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/medium_image_space"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
