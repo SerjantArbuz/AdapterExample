@@ -43,12 +43,12 @@ sealed class TestItem(@TestType val type: Int) {
     sealed class Item(val imageUrl: String, @TestType type: Int, ) : TestItem(type) {
 
         class Small(imageUrl: String, val title: String, val subtitle: String) :
-            Item(imageUrl, TestType.CARD_SMALL)
+            Item(imageUrl, TestType.ITEM_SMALL)
 
         class Medium(imageUrl: String, val title: String, val subtitle: String) :
-            Item(imageUrl, TestType.CARD_MEDIUM)
+            Item(imageUrl, TestType.ITEM_MEDIUM)
 
-        class Big(imageUrl: String) : Item(imageUrl, TestType.CARD_BIG)
+        class Big(imageUrl: String) : Item(imageUrl, TestType.ITEM_BIG)
     }
 
 }

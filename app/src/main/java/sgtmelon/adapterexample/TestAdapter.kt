@@ -14,8 +14,8 @@ class TestAdapter(
         TestType.HEADER -> HeaderHolder(parent.inflate(R.layout.item_header))
         TestType.SPACE -> SpaceHolder(parent.inflate(R.layout.item_space))
         TestType.BUTTON -> ButtonHolder(parent.inflate(R.layout.item_button))
-        TestType.CARD_SMALL -> SmallItemHolder(parent.inflate(R.layout.item_small))
-        TestType.CARD_MEDIUM -> MediumItemHolder(parent.inflate(R.layout.item_medium))
+        TestType.ITEM_SMALL -> SmallItemHolder(parent.inflate(R.layout.item_small))
+        TestType.ITEM_MEDIUM -> MediumItemHolder(parent.inflate(R.layout.item_medium))
         else -> BigItemHolder(parent.inflate(R.layout.item_big))
     }
 
