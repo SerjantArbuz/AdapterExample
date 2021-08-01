@@ -10,13 +10,15 @@ class TestAdapter(
     private val callback: Callback
 ) : ParentAdapter<TestItem, RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when (viewType) {
-        TestType.HEADER -> HeaderHolder(parent.inflate(R.layout.item_header))
-        TestType.SPACE -> SpaceHolder(parent.inflate(R.layout.item_space))
-        TestType.BUTTON -> ButtonHolder(parent.inflate(R.layout.item_button))
-        TestType.ITEM_SMALL -> SmallItemHolder(parent.inflate(R.layout.item_small))
-        TestType.ITEM_MEDIUM -> MediumItemHolder(parent.inflate(R.layout.item_medium))
-        else -> BigItemHolder(parent.inflate(R.layout.item_big))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (TestType.values()[viewType]) {
+            TestType.HEADER -> HeaderHolder(parent.inflate(R.layout.item_header))
+            TestType.SPACE -> SpaceHolder(parent.inflate(R.layout.item_space))
+            TestType.BUTTON -> ButtonHolder(parent.inflate(R.layout.item_button))
+            TestType.ITEM_SMALL -> SmallItemHolder(parent.inflate(R.layout.item_small))
+            TestType.ITEM_MEDIUM -> MediumItemHolder(parent.inflate(R.layout.item_medium))
+            TestType.ITEM_BIG -> BigItemHolder(parent.inflate(R.layout.item_big))
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -35,7 +37,7 @@ class TestAdapter(
         (holder as? UnbindCallback)?.unbind()
     }
 
-    override fun getItemViewType(position: Int): Int = list[position].type
+    override fun getItemViewType(position: Int): Int = list[position].type.ordinal
 
     interface Callback : HeaderHolder.Callback,
         ButtonHolder.Callback,

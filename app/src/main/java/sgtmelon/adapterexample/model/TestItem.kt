@@ -9,7 +9,7 @@ import sgtmelon.adapterexample.TestAdapter
 /**
  * Model's for [TestAdapter].
  */
-sealed class TestItem(@TestType val type: Int) {
+sealed class TestItem(val type: TestType) {
 
     sealed class Header(
         @StringRes val titleId: Int,
@@ -40,7 +40,7 @@ sealed class TestItem(@TestType val type: Int) {
         class Sixth(imageUrl: String) : Button(imageUrl, R.string.button_sixth, R.color.button_sixth)
     }
 
-    sealed class Item(val imageUrl: String, @TestType type: Int, ) : TestItem(type) {
+    sealed class Item(val imageUrl: String, type: TestType) : TestItem(type) {
 
         class Small(imageUrl: String, val title: String, val subtitle: String) :
             Item(imageUrl, TestType.ITEM_SMALL)
