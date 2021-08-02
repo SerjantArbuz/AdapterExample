@@ -44,5 +44,4 @@ class TestAdapter(
             SmallItemHolder.Callback,
             MediumItemHolder.Callback,
             BigItemHolder.Callback
-
 }

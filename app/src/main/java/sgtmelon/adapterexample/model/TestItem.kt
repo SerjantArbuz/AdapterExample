@@ -50,5 +50,4 @@ sealed class TestItem(val type: TestType) {
 
         class Big(imageUrl: String) : Item(imageUrl, TestType.ITEM_BIG)
     }
-
 }
