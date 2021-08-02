@@ -24,24 +24,24 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
         val spanCount = 6
 
         /**
-         * Variables for better understanding.
+         * Variables for better understanding. SpanCount must be evenly divisible on ColumnCount.
+         * For example if you need 1, 2, 3 and 4 columns -> spanCount will be = 12.
          */
-        val oneColumn = spanCount
+        val oneColumn = spanCount / 1
         val twoColumns = spanCount / 2
         val threeColumns = spanCount / 3
 
         val layoutManager = GridLayoutManager(this, spanCount)
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val item = adapter.getItemList().getOrNull(position) ?: return spanCount
-
-                return when (item) {
+                return when (adapter.getItemList().getOrNull(position)) {
                     is TestItem.Header -> oneColumn
                     is TestItem.Space -> oneColumn
                     is TestItem.Button -> threeColumns
                     is TestItem.Item.Small -> oneColumn
                     is TestItem.Item.Medium -> threeColumns
                     is TestItem.Item.Big -> twoColumns
+                    null -> oneColumn
                 }
             }
         }
