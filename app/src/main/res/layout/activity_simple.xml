@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.MainActivity">
+    tools:context=".screen.SimpleActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recycler"
+        android:id="@+id/simple_recycler"
         android:clipToPadding="false"
         android:paddingHorizontal="@dimen/recycler_horizontal_space"
         android:paddingVertical="@dimen/recycler_vertical_space"

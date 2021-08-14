@@ -4,10 +4,10 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 
 /**
- * Model's for [TestAdapter].
+ * Model's for [SimpleAdapter].
  */
 sealed class TestItem(val type: TestType) {
 

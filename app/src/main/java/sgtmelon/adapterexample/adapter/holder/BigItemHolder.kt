@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
 
 /**
- * Holder for [TestItem.Item.Big] inside [TestAdapter].
+ * Holder for [TestItem.Item.Big] inside [SimpleAdapter].
  */
 class BigItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 

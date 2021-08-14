@@ -4,11 +4,11 @@ import android.view.View
 import android.widget.TextView
 import sgtmelon.adapterexample.R
 
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
 
 /**
- * Holder for [TestItem.Header] inside [TestAdapter].
+ * Holder for [TestItem.Header] inside [SimpleAdapter].
  */
 class HeaderHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 

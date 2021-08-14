@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Adapter Example</string>
 
-
     <string name="header_first">Header first</string>
     <string name="header_second">Header second</string>
     <string name="header_third">Header third</string>
@@ -16,5 +15,8 @@
     <string name="button_fourth">Fourth btn</string>
     <string name="button_fifth">Fifth btn</string>
     <string name="button_sixth">Sixth btn</string>
+
+    <string name="button_menu_simple">1. List with different items and multiple columns grid</string>
+    <string name="button_menu_diff">2. Like first but with DiffUtil</string>
 
 </resources>

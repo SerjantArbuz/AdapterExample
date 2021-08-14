@@ -8,7 +8,7 @@ import sgtmelon.adapterexample.inflate
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.model.TestType
 
-class TestAdapter(
+class SimpleAdapter(
     private val callback: Callback
 ) : ParentAdapter<TestItem, RecyclerView.ViewHolder>() {
 

@@ -3,12 +3,12 @@ package sgtmelon.adapterexample.adapter.holder
 import android.view.View
 import sgtmelon.adapterexample.R
 
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.updateMargin
 
 /**
- * Holder for [TestItem.Space] inside [TestAdapter].
+ * Holder for [TestItem.Space] inside [SimpleAdapter].
  */
 class SpaceHolder(itemView: View): ParentHolder(itemView) {
 

@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
 
 /**
- * Holder for [TestItem.Item.Small] inside [TestAdapter].
+ * Holder for [TestItem.Item.Small] inside [SimpleAdapter].
  */
 class SmallItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 

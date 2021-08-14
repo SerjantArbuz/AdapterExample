@@ -1,23 +1,29 @@
 package sgtmelon.adapterexample.screen
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.showToast
 
-class MainActivity : AppCompatActivity(), TestAdapter.Callback {
+/**
+ * Screen with demonstration of multiple column grid and different items
+ * in one single [SimpleAdapter].
+ */
+class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
 
-    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.main_recycler) }
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.simple_recycler) }
 
-    private val adapter = TestAdapter(callback = this)
+    private val adapter = SimpleAdapter(callback = this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_simple)
 
         setupRecycler()
         updateList()
@@ -68,7 +74,7 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
         val list = mutableListOf<TestItem>()
 
         val imageList = listOf(
-            "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31",
+            "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31.jpg",
             "https://images.unsplash.com/photo-1429734956993-8a9b0555e122",
             "https://images.unsplash.com/photo-1599940824399-b87987ceb72a",
             "https://images.unsplash.com/photo-1599148401005-fe6d7497cb5e",
@@ -183,4 +189,7 @@ class MainActivity : AppCompatActivity(), TestAdapter.Callback {
 
     //endregion
 
+    companion object {
+        operator fun get(context: Context): Intent = Intent(context, SimpleActivity::class.java)
+    }
 }

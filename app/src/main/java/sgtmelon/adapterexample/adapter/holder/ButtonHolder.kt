@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.TestAdapter
+import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
 
 /**
- * Holder for [TestItem.Button] inside [TestAdapter].
+ * Holder for [TestItem.Button] inside [SimpleAdapter].
  */
 class ButtonHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
