@@ -30,3 +30,8 @@ fun View.updateMargin(
 fun Context.showToast(text: String, length: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, text, length).show()
 }
+
+fun <T> MutableList<T>.clearAdd(replace: List<T>) = apply {
+    clear()
+    addAll(replace)
+}
