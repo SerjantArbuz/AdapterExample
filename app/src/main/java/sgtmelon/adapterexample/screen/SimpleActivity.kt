@@ -74,7 +74,7 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
         val list = mutableListOf<TestItem>()
 
         val imageList = listOf(
-            "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31.jpg",
+            "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31",
             "https://images.unsplash.com/photo-1429734956993-8a9b0555e122",
             "https://images.unsplash.com/photo-1599940824399-b87987ceb72a",
             "https://images.unsplash.com/photo-1599148401005-fe6d7497cb5e",
