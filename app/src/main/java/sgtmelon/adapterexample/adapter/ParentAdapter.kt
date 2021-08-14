@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample
+package sgtmelon.adapterexample.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*

@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.holder
+package sgtmelon.adapterexample.adapter.holder
 
 import android.graphics.drawable.ColorDrawable
 import android.view.View
@@ -7,20 +7,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.TestAdapter
+import sgtmelon.adapterexample.adapter.TestAdapter
 import sgtmelon.adapterexample.model.TestItem
 
 /**
- * Holder for [TestItem.Item.Small] inside [TestAdapter].
+ * Holder for [TestItem.Item.Medium] inside [TestAdapter].
  */
-class SmallItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
+class MediumItemHolder(itemView: View) : ParentHolder(itemView), UnbindCallback {
 
-    private val contentContainer = itemView.findViewById<ViewGroup>(R.id.item_small_container)
-    private val imageView = itemView.findViewById<ImageView>(R.id.item_small_image)
-    private val titleText = itemView.findViewById<TextView>(R.id.item_small_title)
-    private val subtitleText = itemView.findViewById<TextView>(R.id.item_small_subtitle)
+    private val contentContainer = itemView.findViewById<ViewGroup>(R.id.item_medium_container)
+    private val imageView = itemView.findViewById<ImageView>(R.id.item_medium_image)
+    private val titleText = itemView.findViewById<TextView>(R.id.item_medium_title)
+    private val subtitleText = itemView.findViewById<TextView>(R.id.item_medium_subtitle)
 
-    fun bind(item: TestItem.Item.Small, callback: Callback) {
+    fun bind(item: TestItem.Item.Medium, callback: Callback) {
         contentContainer.setOnClickListener { callback.onItemClick(item) }
 
         Glide.with(context)
@@ -38,6 +38,6 @@ class SmallItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     }
 
     interface Callback {
-        fun onItemClick(item: TestItem.Item.Small)
+        fun onItemClick(item: TestItem.Item.Medium)
     }
 }

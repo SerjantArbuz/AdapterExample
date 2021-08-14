@@ -4,7 +4,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.TestAdapter
+import sgtmelon.adapterexample.adapter.TestAdapter
 
 /**
  * Model's for [TestAdapter].

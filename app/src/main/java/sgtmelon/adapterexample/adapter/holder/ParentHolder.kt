@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.holder
+package sgtmelon.adapterexample.adapter.holder
 
 import android.content.Context
 import android.view.View

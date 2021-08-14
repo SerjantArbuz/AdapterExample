@@ -1,10 +1,13 @@
-package sgtmelon.adapterexample
+package sgtmelon.adapterexample.screen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import sgtmelon.adapterexample.R
+import sgtmelon.adapterexample.adapter.TestAdapter
 import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.showToast
 
 class MainActivity : AppCompatActivity(), TestAdapter.Callback {
 

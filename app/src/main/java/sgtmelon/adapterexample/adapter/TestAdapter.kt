@@ -1,8 +1,10 @@
-package sgtmelon.adapterexample
+package sgtmelon.adapterexample.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import sgtmelon.adapterexample.holder.*
+import sgtmelon.adapterexample.R
+import sgtmelon.adapterexample.adapter.holder.*
+import sgtmelon.adapterexample.inflate
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.model.TestType
 
