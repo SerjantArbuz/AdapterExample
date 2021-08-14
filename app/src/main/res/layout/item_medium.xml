@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="@dimen/item_medium_radius"
+    app:cardElevation="@dimen/card_no_elevation"
+    app:cardBackgroundColor="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:layout_gravity="center">
@@ -76,4 +79,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.cardview.widget.CardView>

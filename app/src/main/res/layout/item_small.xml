@@ -1,57 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/item_small_container"
+    app:cardCornerRadius="@dimen/item_small_radius"
+    app:cardElevation="@dimen/card_no_elevation"
+    app:cardBackgroundColor="@android:color/transparent"
     android:layout_width="match_parent"
-    android:background="?attr/selectableItemBackground"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_marginHorizontal="@dimen/item_small_horizontal_space"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/small_image"
-        android:layout_height="@dimen/small_image"
-        app:cardElevation="@dimen/card_no_elevation"
-        app:cardCornerRadius="@dimen/item_small_radius"
-        android:layout_margin="@dimen/small_image_space">
-
-        <ImageView
-            android:id="@+id/item_small_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-            tools:background="@color/load_holder" />
-
-    </androidx.cardview.widget.CardView>
-    
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_weight="1">
-        
-        <TextView
-            android:id="@+id/item_small_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/SingleLine"
-            android:textSize="@dimen/item_title_text"
-            android:layout_marginBottom="@dimen/item_small_text_space"
-            android:textColor="@color/text_primary"
-            tools:text="@string/header_first"/>
+        android:id="@+id/item_small_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/item_small_subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/SingleLine"
-            android:textSize="@dimen/item_subtitle_text"
-            android:textColor="@color/text_secondary"
-            tools:text="@string/header_second"/>
-        
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/small_image"
+            android:layout_height="@dimen/small_image"
+            android:layout_margin="@dimen/small_image_space"
+            app:cardCornerRadius="@dimen/item_small_radius"
+            app:cardElevation="@dimen/card_no_elevation">
+
+            <ImageView
+                android:id="@+id/item_small_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                tools:background="@color/load_holder" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_small_title"
+                style="@style/SingleLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/item_small_text_space"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/item_title_text"
+                tools:text="@string/header_first"/>
+
+            <TextView
+                android:id="@+id/item_small_subtitle"
+                style="@style/SingleLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/item_subtitle_text"
+                tools:text="@string/header_second" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
