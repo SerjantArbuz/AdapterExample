@@ -8,10 +8,13 @@ import sgtmelon.adapterexample.adapter.holder.*
 import sgtmelon.adapterexample.inflate
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.model.TestType
+import sgtmelon.adapterexample.screen.DiffActivity
 
 /**
+ * Adapter for [DiffActivity].
+ *
  * Content of this class almost the same as [SimpleAdapter] class. Difference between them in
- * [diff] thing here and in code inside parent class (under the hood)
+ * [diff] thing here and in code inside parent class (under the hood).
  */
 class DiffAdapter(
     private val callback: Callback

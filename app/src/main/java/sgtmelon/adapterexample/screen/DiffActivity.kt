@@ -5,7 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import sgtmelon.adapterexample.R
+import sgtmelon.adapterexample.adapter.DiffAdapter
 
+/**
+ * Screen almost like [SimpleActivity], but with diff adapter ([DiffAdapter]).
+ */
 class DiffActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
