@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.nextString
 import sgtmelon.adapterexample.showToast
 
 /**
@@ -111,6 +112,7 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
         val longText = "long long long long"
         repeat(imageList.size) {
             list.add(TestItem.Item.Small(
+                nextString(),
                 imageList[it],
                 title = "Small $longText title: $it",
                 subtitle = "Small $longText subtitle: $it"
@@ -135,6 +137,7 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
 
         repeat(imageList.size) {
             list.add(TestItem.Item.Medium(
+                nextString(),
                 imageList[it],
                 title = "Medium title: $it",
                 subtitle = "Medium subtitle: $it"
@@ -159,7 +162,7 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
         )
 
         repeat(imageList.size) {
-            list.add(TestItem.Item.Big(imageList[it]))
+            list.add(TestItem.Item.Big(nextString(), imageList[it]))
         }
 
         return list

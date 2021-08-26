@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import java.util.*
 
 /**
  * Inflater for viewHolder.
@@ -35,3 +36,8 @@ fun <T> MutableList<T>.clearAdd(replace: List<T>) = apply {
     clear()
     addAll(replace)
 }
+
+/**
+ * Help function for create unique string.
+ */
+fun nextString() = UUID.randomUUID().toString().substring(0, 16)

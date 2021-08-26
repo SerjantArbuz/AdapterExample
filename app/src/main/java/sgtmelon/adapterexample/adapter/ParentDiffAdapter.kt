@@ -19,7 +19,6 @@ abstract class ParentDiffAdapter<T, D : ParentDiff<T>, VH : RecyclerView.ViewHol
 
     protected val list: MutableList<T> = ArrayList()
 
-
     abstract val diff: D
 
     /**
