@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.LayoutRes
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.util.*
 
 /**
@@ -41,3 +43,15 @@ fun <T> MutableList<T>.clearAdd(replace: List<T>) = apply {
  * Help function for create unique string.
  */
 fun nextString() = UUID.randomUUID().toString().substring(0, 16)
+
+//region Coroutines
+
+suspend inline fun <T> runBack(crossinline func: suspend () -> T): T {
+    return withContext(Dispatchers.IO) { func() }
+}
+
+suspend inline fun <T> runMain(crossinline func: suspend () -> T): T {
+    return withContext(Dispatchers.Main) { func() }
+}
+
+//endregion

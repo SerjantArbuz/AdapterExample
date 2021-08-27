@@ -9,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.*
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.DiffAdapter
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.provider.DiffListProvider
+import sgtmelon.adapterexample.runBack
 import sgtmelon.adapterexample.showToast
 
 /**
@@ -25,12 +27,20 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
     private val listProvider = DiffListProvider
     private val adapter = DiffAdapter(callback = this)
 
+    private val job by lazy { Job() }
+    private val mainScope by lazy { CoroutineScope(context = Dispatchers.Main + job) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diff)
 
         setupRecycler()
         startUpdateList()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
     }
 
     private fun setupRecycler() {
@@ -66,7 +76,10 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
     private fun startUpdateList() {
         updateList()
 
-        Handler().postDelayed({ startUpdateList() }, 7000)
+        mainScope.launch {
+            runBack { delay(timeMillis = 7000) }
+            startUpdateList()
+        }
     }
 
     private fun updateList() = adapter.notifyList(listProvider.get())
