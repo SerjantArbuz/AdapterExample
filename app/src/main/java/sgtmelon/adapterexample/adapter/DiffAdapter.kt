@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.diff.TestDiff
 import sgtmelon.adapterexample.adapter.holder.*
+import sgtmelon.adapterexample.clearAdd
 import sgtmelon.adapterexample.inflate
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.model.TestType

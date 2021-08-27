@@ -26,6 +26,9 @@ object DiffListProvider {
         return list
     }
 
+    /**
+     * Remove some items from list
+     */
     private fun changeSmallItemSection(): List<TestItem> {
         val list = BaseListProvider.getSmallItemSection()
 

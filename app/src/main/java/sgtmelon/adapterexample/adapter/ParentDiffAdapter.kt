@@ -21,19 +21,16 @@ abstract class ParentDiffAdapter<T, D : ParentDiff<T>, VH : RecyclerView.ViewHol
 
     abstract val diff: D
 
-    /**
-     * Need copy list in implementation.
-     */
-    @CallSuper open fun setList(list: List<T>) : ParentDiffAdapter<T, D, VH> = apply {
+    fun notifyList(list: List<T>) {
+        this.list.clear()
+        this.list.addAll(list)
+
         diff.setList(this.list, list)
         diffResult = DiffUtil.calculateDiff(diff)
-    }
-
-    fun notifyList(list: List<T>) {
-        setList(list)
         diffResult?.dispatchUpdatesTo(this)
     }
 
+    fun getItemList(): MutableList<T> = list
 
     override fun getItemCount() = list.size
 
