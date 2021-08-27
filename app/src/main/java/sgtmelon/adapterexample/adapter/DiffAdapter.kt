@@ -23,6 +23,19 @@ class DiffAdapter(
 
     override val diff = TestDiff()
 
+    override fun setList(list: List<TestItem>) = apply {
+        super.setList(list)
+
+        this.list.clearAdd(ArrayList(list.map {
+            when (it) {
+                is TestItem.Item.Small -> it.copy()
+                is TestItem.Item.Medium -> it.copy()
+                is TestItem.Item.Big -> it.copy()
+                else -> it
+            }
+        }))
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (TestType.values()[viewType]) {
             TestType.HEADER -> HeaderHolder(parent.inflate(R.layout.item_header))

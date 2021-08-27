@@ -22,12 +22,17 @@ abstract class ParentDiffAdapter<T, D : ParentDiff<T>, VH : RecyclerView.ViewHol
 
     abstract val diff: D
 
-    fun notifyList(list: List<T>) {
+    /**
+     * Need copy list in implementation. Because if some data inside variables is changed it will
+     * not be correctly updated here.
+     */
+    @CallSuper open fun setList(list: List<T>) : ParentDiffAdapter<T, D, VH> = apply {
         diff.setList(this.list, list)
         diffResult = DiffUtil.calculateDiff(diff)
+    }
 
-        this.list.clearAdd(list)
-
+    fun notifyList(list: List<T>) {
+        setList(list)
         diffResult?.dispatchUpdatesTo(this)
     }
 

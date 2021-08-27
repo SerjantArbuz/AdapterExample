@@ -61,15 +61,23 @@ sealed class TestItem(val id: String, val type: TestType) {
             Button(ButtonId.SIXTH, imageUrl, R.string.button_sixth, R.color.button_sixth)
     }
 
-    sealed class Item(id: String, val imageUrl: String, type: TestType) : TestItem(id, type) {
+    sealed class Item(id: String, type: TestType) : TestItem(id, type) {
 
-        class Small(id: String, imageUrl: String, val title: String, val subtitle: String) :
-            Item(ItemId.SMALL.plus(id), imageUrl, TestType.ITEM_SMALL)
+        data class Small(
+            val uniqueId: String,
+            val imageUrl: String,
+            val title: String,
+            val subtitle: String,
+        ) : Item(ItemId.SMALL.plus(uniqueId), TestType.ITEM_SMALL)
 
-        class Medium(id: String, imageUrl: String, val title: String, val subtitle: String) :
-            Item(ItemId.MEDIUM.plus(id), imageUrl, TestType.ITEM_MEDIUM)
+        data class Medium(
+            val uniqueId: String,
+            var imageUrl: String,
+            var title: String,
+            var subtitle: String,
+        ) : Item(ItemId.MEDIUM.plus(uniqueId), TestType.ITEM_MEDIUM)
 
-        class Big(id: String, imageUrl: String)
-            : Item(ItemId.BIG.plus(id), imageUrl, TestType.ITEM_BIG)
+        data class Big(val uniqueId: String, val imageUrl: String) :
+            Item(ItemId.BIG.plus(uniqueId), TestType.ITEM_BIG)
     }
 }

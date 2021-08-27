@@ -74,7 +74,7 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         updateList()
 
         mainScope.launch {
-            runBack { delay(timeMillis = 7000) }
+            runBack { delay(timeMillis = 5000) }
             startUpdateList()
         }
     }

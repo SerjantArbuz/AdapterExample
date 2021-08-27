@@ -1,5 +1,6 @@
 package sgtmelon.adapterexample.provider
 
+import android.util.Log
 import sgtmelon.adapterexample.model.TestItem
 
 /**
@@ -15,8 +16,10 @@ object DiffListProvider {
         if (needShowDiff) {
             list.addAll(BaseListProvider.getButtonSection())
             list.addAll(changeSmallItemSection())
-            list.addAll(BaseListProvider.getMediumItemSection())
+            list.addAll(changeMediumItemSection())
             list.addAll(BaseListProvider.getBigItemSection())
+
+            Log.i("HERE", "medium: ${list.filterIsInstance<TestItem.Item.Medium>().joinToString(",\n")}")
         } else {
             list.addAll(SimpleListProvider().get())
         }
@@ -28,15 +31,31 @@ object DiffListProvider {
 
     private fun changeSmallItemSection(): List<TestItem> {
         /**
-         * Copy list for prevent overriding.
+         * Copy list for prevent overriding inside [BaseListProvider] cache.
          */
         val list = ArrayList(BaseListProvider.getSmallItemSection())
 
-        for (i in 0 until (1..3).random()) {
+        for (i in 0 until (1..2).random()) {
             val item = list.filterIsInstance<TestItem.Item.Small>().random()
             val index = list.indexOf(item).takeIf { it != -1 } ?: continue
             list.removeAt(index)
         }
+
+        return list
+    }
+
+    private fun changeMediumItemSection(): List<TestItem> {
+        /**
+         * Copy list for prevent overriding inside [BaseListProvider] cache.
+         */
+        val list = ArrayList(BaseListProvider.getMediumItemSection().map {
+            if (it is TestItem.Item.Medium) it.copy() else it
+        })
+
+        val item = list.filterIsInstance<TestItem.Item.Medium>().random()
+        item.imageUrl = "https://images.unsplash.com/photo-1629995235051-069c3e984598"
+        item.title = "Here we are!"
+        item.subtitle = "Item updated"
 
         return list
     }

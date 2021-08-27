@@ -8,13 +8,17 @@ import sgtmelon.adapterexample.clearAdd
  */
 abstract class ParentDiff<T> : DiffUtil.Callback() {
 
-    protected val oldList: MutableList<T> = ArrayList()
-    protected val newList: MutableList<T> = ArrayList()
+    private val oldList: MutableList<T> = ArrayList()
+    private val newList: MutableList<T> = ArrayList()
 
     fun setList(oldList: List<T>, newList: List<T>) {
         this.oldList.clearAdd(oldList)
         this.newList.clearAdd(newList)
     }
+
+    fun getOldItem(position: Int) = oldList.getOrNull(position)
+
+    fun getNewItem(position: Int) = newList.getOrNull(position)
 
     override fun getOldListSize() = oldList.size
 
