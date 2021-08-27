@@ -26,11 +26,11 @@ object DiffListProvider {
         return list
     }
 
-    /**
-     * Remove some items from list
-     */
     private fun changeSmallItemSection(): List<TestItem> {
-        val list = BaseListProvider.getSmallItemSection()
+        /**
+         * Copy list for prevent overriding.
+         */
+        val list = ArrayList(BaseListProvider.getSmallItemSection())
 
         for (i in 0 until (1..3).random()) {
             val item = list.filterIsInstance<TestItem.Item.Small>().random()

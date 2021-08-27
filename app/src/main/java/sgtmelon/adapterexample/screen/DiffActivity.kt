@@ -3,11 +3,8 @@ package sgtmelon.adapterexample.screen
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import sgtmelon.adapterexample.R
@@ -105,6 +102,8 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
     override fun onItemClick(item: TestItem.Item.Big) {
         showToast(text = "Click on big card")
     }
+
+    //endregion
 
     companion object {
         operator fun get(context: Context): Intent = Intent(context, DiffActivity::class.java)

@@ -8,7 +8,15 @@ import sgtmelon.adapterexample.nextString
  */
 object BaseListProvider {
 
-    fun getButtonSection(): MutableList<TestItem> {
+    /**
+     * Cache our lists for stable [TestItem.id].
+     */
+    private var buttonSectionList: MutableList<TestItem>? = null
+    private var smallItemSectionList: MutableList<TestItem>? = null
+    private var mediumItemSectionList: MutableList<TestItem>? = null
+    private var bigItemSectionList: MutableList<TestItem>? = null
+
+    fun getButtonSection(): MutableList<TestItem> = buttonSectionList ?: run {
         val list = mutableListOf<TestItem>()
 
         val imageList = listOf(
@@ -30,10 +38,12 @@ object BaseListProvider {
         list.add(TestItem.Button.Fifth(imageList[4]))
         list.add(TestItem.Button.Sixth(imageList[5]))
 
-        return list
+        buttonSectionList = list
+
+        return@run list
     }
 
-    fun getSmallItemSection(): MutableList<TestItem> {
+    fun getSmallItemSection(): MutableList<TestItem> = smallItemSectionList ?: run {
         val list = mutableListOf<TestItem>()
 
         list.add(TestItem.Space.Big)
@@ -56,10 +66,12 @@ object BaseListProvider {
             ))
         }
 
-        return list
+        smallItemSectionList = list
+
+        return@run list
     }
 
-    fun getMediumItemSection(): MutableList<TestItem> {
+    fun getMediumItemSection(): MutableList<TestItem> = mediumItemSectionList ?: run {
         val list = mutableListOf<TestItem>()
 
         list.add(TestItem.Space.Big)
@@ -81,10 +93,12 @@ object BaseListProvider {
             ))
         }
 
-        return list
+        mediumItemSectionList = list
+
+        return@run list
     }
 
-    fun getBigItemSection(): MutableList<TestItem> {
+    fun getBigItemSection(): MutableList<TestItem> = bigItemSectionList ?: run {
         val list = mutableListOf<TestItem>()
 
         list.add(TestItem.Space.Big)
@@ -102,7 +116,9 @@ object BaseListProvider {
             list.add(TestItem.Item.Big(nextString(), imageList[it]))
         }
 
-        return list
+        bigItemSectionList = list
+
+        return@run list
     }
 
 }
