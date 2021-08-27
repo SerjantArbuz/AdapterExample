@@ -4,6 +4,7 @@ import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.adapter.diff.ParentDiff
+import sgtmelon.adapterexample.clearAdd
 
 /**
  * Parent abstract class for adapters with common functions
@@ -22,11 +23,11 @@ abstract class ParentDiffAdapter<T, D : ParentDiff<T>, VH : RecyclerView.ViewHol
     abstract val diff: D
 
     fun notifyList(list: List<T>) {
-        this.list.clear()
-        this.list.addAll(list)
-
         diff.setList(this.list, list)
         diffResult = DiffUtil.calculateDiff(diff)
+
+        this.list.clearAdd(list)
+
         diffResult?.dispatchUpdatesTo(this)
     }
 

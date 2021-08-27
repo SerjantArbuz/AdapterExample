@@ -30,12 +30,7 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         setContentView(R.layout.activity_diff)
 
         setupRecycler()
-        updateList()
-
-        Handler().postDelayed({
-            updateList()
-        }, 5000)
-
+        startUpdateList()
     }
 
     private fun setupRecycler() {
@@ -66,6 +61,12 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
+    }
+
+    private fun startUpdateList() {
+        updateList()
+
+        Handler().postDelayed({ startUpdateList() }, 7000)
     }
 
     private fun updateList() = adapter.notifyList(listProvider.get())
