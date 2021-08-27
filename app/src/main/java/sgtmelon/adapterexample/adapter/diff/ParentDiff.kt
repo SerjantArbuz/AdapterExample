@@ -20,8 +20,4 @@ abstract class ParentDiff<T> : DiffUtil.Callback() {
 
     override fun getNewListSize() = newList.size
 
-    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition] == newList[newItemPosition]
-    }
-
 }
