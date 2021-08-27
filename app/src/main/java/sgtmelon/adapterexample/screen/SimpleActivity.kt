@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.TestItem
-import sgtmelon.adapterexample.nextString
 import sgtmelon.adapterexample.provider.SimpleListProvider
 import sgtmelon.adapterexample.showToast
 
@@ -62,7 +61,7 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
         recyclerView.adapter = adapter
     }
 
-    private fun updateList() = adapter.setList(listProvider.create()).notifyDataSetChanged()
+    private fun updateList() = adapter.setList(listProvider.get()).notifyDataSetChanged()
 
     //region Adapter callback's
 
