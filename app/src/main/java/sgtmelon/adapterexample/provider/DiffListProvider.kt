@@ -1,6 +1,5 @@
 package sgtmelon.adapterexample.provider
 
-import android.util.Log
 import sgtmelon.adapterexample.model.TestItem
 
 /**
@@ -17,9 +16,7 @@ object DiffListProvider {
             list.addAll(BaseListProvider.getButtonSection())
             list.addAll(changeSmallItemSection())
             list.addAll(changeMediumItemSection())
-            list.addAll(BaseListProvider.getBigItemSection())
-
-            Log.i("HERE", "medium: ${list.filterIsInstance<TestItem.Item.Medium>().joinToString(",\n")}")
+            list.addAll(changeBigItemSection())
         } else {
             list.addAll(SimpleListProvider().get())
         }
@@ -31,7 +28,7 @@ object DiffListProvider {
 
     private fun changeSmallItemSection(): List<TestItem> {
         /**
-         * Copy list for prevent overriding inside [BaseListProvider] cache.
+         * Copy list for prevent overriding cache inside [BaseListProvider].
          */
         val list = ArrayList(BaseListProvider.getSmallItemSection())
 
@@ -46,7 +43,7 @@ object DiffListProvider {
 
     private fun changeMediumItemSection(): List<TestItem> {
         /**
-         * Copy list for prevent overriding inside [BaseListProvider] cache.
+         * Copy list for prevent overriding cache inside [BaseListProvider].
          */
         val list = ArrayList(BaseListProvider.getMediumItemSection().map {
             if (it is TestItem.Item.Medium) it.copy() else it
@@ -60,4 +57,16 @@ object DiffListProvider {
         return list
     }
 
+    private fun changeBigItemSection(): List<TestItem> {
+        /**
+         * Copy list for prevent overriding cache inside [BaseListProvider].
+         */
+        val originalList = ArrayList(BaseListProvider.getBigItemSection())
+
+        val returnList = mutableListOf<TestItem>()
+        returnList.addAll(originalList.filterNot { it is TestItem.Item.Big })
+        returnList.addAll(originalList.filterIsInstance<TestItem.Item.Big>().shuffled())
+
+        return returnList
+    }
 }

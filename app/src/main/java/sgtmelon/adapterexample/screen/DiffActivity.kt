@@ -32,7 +32,16 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         setContentView(R.layout.activity_diff)
 
         setupRecycler()
-        startUpdateList()
+
+        updateList()
+
+        /**
+         * Delay is used for item images normal load.
+         */
+        mainScope.launch {
+            runBack { delay(timeMillis = 35000) }
+            startUpdateList()
+        }
     }
 
     override fun onDestroy() {
