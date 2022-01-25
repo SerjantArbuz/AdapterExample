@@ -12,6 +12,7 @@ import sgtmelon.adapterexample.adapter.DiffAdapter
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.provider.DiffListProvider
 import sgtmelon.adapterexample.runBack
+import sgtmelon.adapterexample.runMain
 import sgtmelon.adapterexample.showToast
 
 /**
@@ -25,7 +26,8 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
     private val adapter = DiffAdapter(callback = this)
 
     private val job by lazy { Job() }
-    private val mainScope by lazy { CoroutineScope(context = Dispatchers.Main + job) }
+    private val uiScope by lazy { CoroutineScope(context = Dispatchers.Main + job) }
+    private val ioScope by lazy { CoroutineScope(context = Dispatchers.IO + job) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +40,9 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         /**
          * Delay is used for item images normal load.
          */
-        mainScope.launch {
-            runBack { delay(timeMillis = 35000) }
-            startUpdateList()
+        ioScope.launch {
+            delay(timeMillis = 35000)
+            runMain { startUpdateList() }
         }
     }
 
@@ -82,9 +84,9 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
     private fun startUpdateList() {
         updateList()
 
-        mainScope.launch {
-            runBack { delay(timeMillis = 5000) }
-            startUpdateList()
+        ioScope.launch {
+            delay(timeMillis = 5000)
+            runMain { startUpdateList() }
         }
     }
 

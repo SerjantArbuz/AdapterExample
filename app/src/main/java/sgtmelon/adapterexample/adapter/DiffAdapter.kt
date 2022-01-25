@@ -27,7 +27,7 @@ class DiffAdapter(
         super.setList(list)
 
         this.list.clearAdd(ArrayList(list.map {
-            when (it) {
+            return@map when (it) {
                 is TestItem.Item.Small -> it.copy()
                 is TestItem.Item.Medium -> it.copy()
                 is TestItem.Item.Big -> it.copy()
