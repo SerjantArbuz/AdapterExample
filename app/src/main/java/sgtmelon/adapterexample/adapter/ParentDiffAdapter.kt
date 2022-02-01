@@ -7,7 +7,7 @@ import sgtmelon.adapterexample.adapter.diff.ParentDiff
 import sgtmelon.adapterexample.clearAdd
 
 /**
- * Parent abstract class for adapters with common functions
+ * Parent abstract class for adapters with DiffUtil implementation.
  *
  * @param <T>   - list model
  * @param <D>   - diff callback
