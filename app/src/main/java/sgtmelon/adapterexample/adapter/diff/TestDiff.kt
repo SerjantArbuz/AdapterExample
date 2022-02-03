@@ -33,25 +33,9 @@ class TestDiff : ParentDiff<TestItem>() {
             is TestItem.Button.Fourth -> return newItem is TestItem.Button.Fourth
             is TestItem.Button.Fifth -> return newItem is TestItem.Button.Fifth
             is TestItem.Button.Sixth -> return newItem is TestItem.Button.Sixth
-            is TestItem.Item.Small -> {
-                if (newItem !is TestItem.Item.Small) return false
-
-                return oldItem.imageUrl == newItem.imageUrl &&
-                        oldItem.title == newItem.title &&
-                        oldItem.subtitle == newItem.subtitle
-            }
-            is TestItem.Item.Medium -> {
-                if (newItem !is TestItem.Item.Medium) return false
-
-                return oldItem.imageUrl == newItem.imageUrl &&
-                        oldItem.title == newItem.title &&
-                        oldItem.subtitle == newItem.subtitle
-            }
-            is TestItem.Item.Big -> {
-                if (newItem !is TestItem.Item.Big) return false
-
-                return oldItem.imageUrl == newItem.imageUrl
-            }
+            is TestItem.Item.Small -> return if (newItem is TestItem.Item.Small) oldItem == newItem else false
+            is TestItem.Item.Medium -> return if (newItem is TestItem.Item.Medium) oldItem == newItem else false
+            is TestItem.Item.Big -> return if (newItem is TestItem.Item.Big) oldItem == newItem else false
         }
     }
 }
