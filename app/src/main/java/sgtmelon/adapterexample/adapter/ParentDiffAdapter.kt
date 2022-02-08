@@ -9,9 +9,9 @@ import sgtmelon.adapterexample.clearAdd
 /**
  * Parent abstract class for adapters with DiffUtil implementation.
  *
- * @param <T>   - list model
+ * @param <T>   - list item model
  * @param <D>   - diff callback
- * @param <VH>  - holder for model
+ * @param <VH>  - view holder for model
  */
 abstract class ParentDiffAdapter<T, D : ParentDiff<T>, VH : RecyclerView.ViewHolder> :
         RecyclerView.Adapter<VH>() {

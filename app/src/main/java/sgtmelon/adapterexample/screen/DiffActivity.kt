@@ -11,7 +11,6 @@ import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.DiffAdapter
 import sgtmelon.adapterexample.model.TestItem
 import sgtmelon.adapterexample.provider.DiffListProvider
-import sgtmelon.adapterexample.runBack
 import sgtmelon.adapterexample.runMain
 import sgtmelon.adapterexample.showToast
 
@@ -35,7 +34,7 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
 
         setupRecycler()
 
-        updateList()
+        updateList(listProvider.get())
 
         /**
          * Delay is used for item images normal load.
@@ -82,7 +81,7 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
     }
 
     private fun startUpdateList() {
-        updateList()
+        updateList(listProvider.get())
 
         ioScope.launch {
             delay(timeMillis = 5000)
@@ -90,7 +89,7 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         }
     }
 
-    private fun updateList() = adapter.notifyList(listProvider.get())
+    private fun updateList(list: List<TestItem>) = adapter.notifyList(list)
 
     //region Adapter callback's
 
