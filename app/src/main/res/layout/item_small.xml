@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/item_small_radius"
-    app:cardElevation="@dimen/card_no_elevation"
+    app:cardElevation="@dimen/no_elevation"
     app:cardBackgroundColor="@android:color/transparent"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +22,7 @@
             android:layout_height="@dimen/small_image"
             android:layout_margin="@dimen/small_image_space"
             app:cardCornerRadius="@dimen/item_small_radius"
-            app:cardElevation="@dimen/card_no_elevation">
+            app:cardElevation="@dimen/no_elevation">
 
             <ImageView
                 android:id="@+id/item_small_image"
