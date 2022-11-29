@@ -1,7 +1,6 @@
-package sgtmelon.adapterexample.adapter
+package sgtmelon.adapterexample.cleanup.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
 
 /**
  * Parent abstract class for adapters with common functions.

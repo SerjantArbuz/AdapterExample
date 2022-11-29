@@ -1,9 +1,9 @@
-package sgtmelon.adapterexample.adapter.holder
+package sgtmelon.adapterexample.cleanup.adapter.holder
 
 import android.view.View
 import sgtmelon.adapterexample.R
 
-import sgtmelon.adapterexample.adapter.SimpleAdapter
+import sgtmelon.adapterexample.cleanup.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.Item
 import sgtmelon.adapterexample.updateMargin
 

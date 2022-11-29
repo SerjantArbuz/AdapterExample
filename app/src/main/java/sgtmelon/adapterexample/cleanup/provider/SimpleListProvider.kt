@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.provider
+package sgtmelon.adapterexample.cleanup.provider
 
 import sgtmelon.adapterexample.model.Item
 

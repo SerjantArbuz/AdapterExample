@@ -4,10 +4,13 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.DiffAdapter
-import sgtmelon.adapterexample.adapter.SimpleAdapter
-import sgtmelon.adapterexample.adapter.diff.TestDiff
-import sgtmelon.adapterexample.model.ItemId.*
+import sgtmelon.adapterexample.cleanup.adapter.DiffAdapter
+import sgtmelon.adapterexample.cleanup.adapter.SimpleAdapter
+import sgtmelon.adapterexample.cleanup.adapter.diff.TestDiff
+import sgtmelon.adapterexample.model.ItemId.ButtonId
+import sgtmelon.adapterexample.model.ItemId.CardId
+import sgtmelon.adapterexample.model.ItemId.HeaderId
+import sgtmelon.adapterexample.model.ItemId.SpaceId
 
 /**
  * Model's for [SimpleAdapter] and [DiffAdapter].

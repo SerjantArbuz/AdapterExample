@@ -15,7 +15,9 @@
         android:theme="@style/Theme.AdapterExample"
         tools:ignore="AllowBackup">
 
-        <activity android:name=".screen.MenuActivity">
+        <activity
+            android:name="sgtmelon.adapterexample.cleanup.screen.MenuActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,21 +25,13 @@
         </activity>
 
         <activity
-            android:name=".screen.SimpleActivity"
-            android:parentActivityName=".screen.MenuActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:name="sgtmelon.adapterexample.cleanup.screen.SimpleActivity"
+            android:parentActivityName="sgtmelon.adapterexample.cleanup.screen.MenuActivity" />
 
-        <activity android:name=".screen.DiffActivity"
-            android:parentActivityName=".screen.MenuActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name="sgtmelon.adapterexample.cleanup.screen.DiffActivity"
+            android:parentActivityName="sgtmelon.adapterexample.cleanup.screen.MenuActivity" />
+
     </application>
 
 </manifest>

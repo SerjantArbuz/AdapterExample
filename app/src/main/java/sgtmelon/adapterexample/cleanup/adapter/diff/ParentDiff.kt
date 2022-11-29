@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.adapter.diff
+package sgtmelon.adapterexample.cleanup.adapter.diff
 
 import androidx.recyclerview.widget.DiffUtil
 import sgtmelon.adapterexample.clearAdd

@@ -1,6 +1,6 @@
-package sgtmelon.adapterexample.adapter.diff
+package sgtmelon.adapterexample.cleanup.adapter.diff
 
-import sgtmelon.adapterexample.adapter.DiffAdapter
+import sgtmelon.adapterexample.cleanup.adapter.DiffAdapter
 import sgtmelon.adapterexample.model.Item
 
 /**

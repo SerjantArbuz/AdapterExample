@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.adapter.holder
+package sgtmelon.adapterexample.cleanup.adapter.holder
 
 import android.graphics.drawable.ColorDrawable
 import android.view.View
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.SimpleAdapter
+import sgtmelon.adapterexample.cleanup.adapter.SimpleAdapter
 import sgtmelon.adapterexample.model.Item
 
 /**

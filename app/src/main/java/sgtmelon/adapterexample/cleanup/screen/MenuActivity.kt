@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.screen
+package sgtmelon.adapterexample.cleanup.screen
 
 import android.os.Bundle
 import android.view.View

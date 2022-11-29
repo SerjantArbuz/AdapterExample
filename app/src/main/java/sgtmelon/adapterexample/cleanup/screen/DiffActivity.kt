@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.screen
+package sgtmelon.adapterexample.cleanup.screen
 
 import android.content.Context
 import android.content.Intent
@@ -6,29 +6,52 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import sgtmelon.adapterexample.R
-import sgtmelon.adapterexample.adapter.SimpleAdapter
+import sgtmelon.adapterexample.cleanup.adapter.DiffAdapter
+import sgtmelon.adapterexample.cleanup.provider.DiffListProvider
 import sgtmelon.adapterexample.model.Item
-import sgtmelon.adapterexample.provider.SimpleListProvider
+import sgtmelon.adapterexample.runMain
 import sgtmelon.adapterexample.showToast
 
 /**
- * Screen with demonstration of multiple column grid and different items
- * in one single [SimpleAdapter].
+ * Screen almost like [SimpleActivity], but with diff adapter ([DiffAdapter]).
  */
-class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
+class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
 
-    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.simple_recycler) }
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.diff_recycler) }
 
-    private val listProvider = SimpleListProvider()
-    private val adapter = SimpleAdapter(callback = this)
+    private val listProvider = DiffListProvider
+    private val adapter = DiffAdapter(callback = this)
+
+    private val job by lazy { Job() }
+    private val uiScope by lazy { CoroutineScope(context = Dispatchers.Main + job) }
+    private val ioScope by lazy { CoroutineScope(context = Dispatchers.IO + job) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simple)
+        setContentView(R.layout.activity_diff)
 
         setupRecycler()
-        updateList()
+
+        updateList(listProvider.get())
+
+        /**
+         * Delay is used for item images normal load.
+         */
+        ioScope.launch {
+            delay(timeMillis = 35000)
+            runMain { startUpdateList() }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job.cancel()
     }
 
     private fun setupRecycler() {
@@ -61,7 +84,16 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
         recyclerView.adapter = adapter
     }
 
-    private fun updateList() = adapter.setList(listProvider.get()).notifyDataSetChanged()
+    private fun startUpdateList() {
+        updateList(listProvider.get())
+
+        ioScope.launch {
+            delay(timeMillis = 5000)
+            runMain { startUpdateList() }
+        }
+    }
+
+    private fun updateList(list: List<Item>) = adapter.notifyList(list)
 
     //region Adapter callback's
 
@@ -88,6 +120,6 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
     //endregion
 
     companion object {
-        operator fun get(context: Context): Intent = Intent(context, SimpleActivity::class.java)
+        operator fun get(context: Context): Intent = Intent(context, DiffActivity::class.java)
     }
 }

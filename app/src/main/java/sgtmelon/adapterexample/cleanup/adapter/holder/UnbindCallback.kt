@@ -1,4 +1,4 @@
-package sgtmelon.adapterexample.adapter.holder
+package sgtmelon.adapterexample.cleanup.adapter.holder
 
 import androidx.recyclerview.widget.RecyclerView
 

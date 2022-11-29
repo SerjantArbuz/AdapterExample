@@ -1,10 +1,9 @@
-package sgtmelon.adapterexample.adapter
+package sgtmelon.adapterexample.cleanup.adapter
 
 import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import sgtmelon.adapterexample.adapter.diff.ParentDiff
-import sgtmelon.adapterexample.clearAdd
+import sgtmelon.adapterexample.cleanup.adapter.diff.ParentDiff
 
 /**
  * Parent abstract class for adapters with DiffUtil implementation.
