@@ -8,10 +8,10 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.SimpleAdapter
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 
 /**
- * Holder for [TestItem.Item.Small] inside [SimpleAdapter].
+ * Holder for [Item.Card.Small] inside [SimpleAdapter].
  */
 class SmallItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
@@ -20,7 +20,7 @@ class SmallItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     private val titleText = itemView.findViewById<TextView>(R.id.item_small_title)
     private val subtitleText = itemView.findViewById<TextView>(R.id.item_small_subtitle)
 
-    fun bind(item: TestItem.Item.Small, callback: Callback) {
+    fun bind(item: Item.Card.Small, callback: Callback) {
         contentContainer.setOnClickListener { callback.onItemClick(item) }
 
         Glide.with(context)
@@ -38,6 +38,6 @@ class SmallItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     }
 
     interface Callback {
-        fun onItemClick(item: TestItem.Item.Small)
+        fun onItemClick(item: Item.Card.Small)
     }
 }

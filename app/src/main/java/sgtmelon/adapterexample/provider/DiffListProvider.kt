@@ -1,6 +1,6 @@
 package sgtmelon.adapterexample.provider
 
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 
 /**
  * Help class for provide screen list. It's created just for example project.
@@ -9,8 +9,8 @@ object DiffListProvider {
 
     private var needShowDiff: Boolean = false
 
-    fun get(): List<TestItem> {
-        val list = mutableListOf<TestItem>()
+    fun get(): List<Item> {
+        val list = mutableListOf<Item>()
 
         if (needShowDiff) {
             list.addAll(BaseListProvider.getButtonSection())
@@ -26,14 +26,14 @@ object DiffListProvider {
         return list
     }
 
-    private fun changeSmallItemSection(): List<TestItem> {
+    private fun changeSmallItemSection(): List<Item> {
         /**
          * Copy list for prevent overriding cache inside [BaseListProvider].
          */
         val list = ArrayList(BaseListProvider.getSmallItemSection())
 
         for (i in 0 until (1..2).random()) {
-            val item = list.filterIsInstance<TestItem.Item.Small>().random()
+            val item = list.filterIsInstance<Item.Card.Small>().random()
             val index = list.indexOf(item).takeIf { it != -1 } ?: continue
             list.removeAt(index)
         }
@@ -41,15 +41,15 @@ object DiffListProvider {
         return list
     }
 
-    private fun changeMediumItemSection(): List<TestItem> {
+    private fun changeMediumItemSection(): List<Item> {
         /**
          * Copy list for prevent overriding cache inside [BaseListProvider].
          */
         val list = ArrayList(BaseListProvider.getMediumItemSection().map {
-            if (it is TestItem.Item.Medium) it.copy() else it
+            if (it is Item.Card.Medium) it.copy() else it
         })
 
-        val item = list.filterIsInstance<TestItem.Item.Medium>().random()
+        val item = list.filterIsInstance<Item.Card.Medium>().random()
         item.imageUrl = "https://images.unsplash.com/photo-1629995235051-069c3e984598"
         item.title = "Here we are!"
         item.subtitle = "Item updated"
@@ -57,15 +57,15 @@ object DiffListProvider {
         return list
     }
 
-    private fun changeBigItemSection(): List<TestItem> {
+    private fun changeBigItemSection(): List<Item> {
         /**
          * Copy list for prevent overriding cache inside [BaseListProvider].
          */
         val originalList = ArrayList(BaseListProvider.getBigItemSection())
 
-        val returnList = mutableListOf<TestItem>()
-        returnList.addAll(originalList.filterNot { it is TestItem.Item.Big })
-        returnList.addAll(originalList.filterIsInstance<TestItem.Item.Big>().shuffled())
+        val returnList = mutableListOf<Item>()
+        returnList.addAll(originalList.filterNot { it is Item.Card.Big })
+        returnList.addAll(originalList.filterIsInstance<Item.Card.Big>().shuffled())
 
         return returnList
     }

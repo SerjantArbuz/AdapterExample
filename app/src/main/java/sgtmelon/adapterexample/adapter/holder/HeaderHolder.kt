@@ -5,17 +5,17 @@ import android.widget.TextView
 import sgtmelon.adapterexample.R
 
 import sgtmelon.adapterexample.adapter.SimpleAdapter
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 
 /**
- * Holder for [TestItem.Header] inside [SimpleAdapter].
+ * Holder for [Item.Header] inside [SimpleAdapter].
  */
 class HeaderHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
     private val titleText = itemView.findViewById<TextView>(R.id.header_title_text)
     private val actionText = itemView.findViewById<TextView>(R.id.header_action_text)
 
-    fun bind(item: TestItem.Header, callback: Callback) {
+    fun bind(item: Item.Header, callback: Callback) {
         titleText.text = context.getString(item.titleId)
 
         if (item.actionId != null) {
@@ -32,6 +32,6 @@ class HeaderHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     }
 
     interface Callback {
-        fun onHeaderActionClick(item: TestItem.Header)
+        fun onHeaderActionClick(item: Item.Header)
     }
 }

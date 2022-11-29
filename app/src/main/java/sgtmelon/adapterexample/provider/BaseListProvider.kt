@@ -1,6 +1,6 @@
 package sgtmelon.adapterexample.provider
 
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 import sgtmelon.adapterexample.nextString
 
 /**
@@ -9,15 +9,15 @@ import sgtmelon.adapterexample.nextString
 object BaseListProvider {
 
     /**
-     * Cache our lists for stable [TestItem.id].
+     * Cache our lists for stable [Item.id].
      */
-    private var buttonSectionList: MutableList<TestItem>? = null
-    private var smallItemSectionList: MutableList<TestItem>? = null
-    private var mediumItemSectionList: MutableList<TestItem>? = null
-    private var bigItemSectionList: MutableList<TestItem>? = null
+    private var buttonSectionList: MutableList<Item>? = null
+    private var smallItemSectionList: MutableList<Item>? = null
+    private var mediumItemSectionList: MutableList<Item>? = null
+    private var bigItemSectionList: MutableList<Item>? = null
 
-    fun getButtonSection(): MutableList<TestItem> = buttonSectionList ?: run {
-        val list = mutableListOf<TestItem>()
+    fun getButtonSection(): MutableList<Item> = buttonSectionList ?: run {
+        val list = mutableListOf<Item>()
 
         val imageList = listOf(
             "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31",
@@ -28,27 +28,27 @@ object BaseListProvider {
             "https://images.unsplash.com/photo-1498330177096-689e3fb901ca"
         )
 
-        list.add(TestItem.Header.First)
-        list.add(TestItem.Space.Medium)
-        list.add(TestItem.Button.First(imageList[0]))
-        list.add(TestItem.Button.Second(imageList[1]))
-        list.add(TestItem.Button.Third(imageList[2]))
-        list.add(TestItem.Space.Small)
-        list.add(TestItem.Button.Fourth(imageList[3]))
-        list.add(TestItem.Button.Fifth(imageList[4]))
-        list.add(TestItem.Button.Sixth(imageList[5]))
+        list.add(Item.Header.First)
+        list.add(Item.Space.Medium)
+        list.add(Item.Button.First(imageList[0]))
+        list.add(Item.Button.Second(imageList[1]))
+        list.add(Item.Button.Third(imageList[2]))
+        list.add(Item.Space.Small)
+        list.add(Item.Button.Fourth(imageList[3]))
+        list.add(Item.Button.Fifth(imageList[4]))
+        list.add(Item.Button.Sixth(imageList[5]))
 
         buttonSectionList = list
 
         return@run list
     }
 
-    fun getSmallItemSection(): MutableList<TestItem> = smallItemSectionList ?: run {
-        val list = mutableListOf<TestItem>()
+    fun getSmallItemSection(): MutableList<Item> = smallItemSectionList ?: run {
+        val list = mutableListOf<Item>()
 
-        list.add(TestItem.Space.Big)
-        list.add(TestItem.Header.Second)
-        list.add(TestItem.Space.Small)
+        list.add(Item.Space.Big)
+        list.add(Item.Header.Second)
+        list.add(Item.Space.Small)
 
         val imageList = listOf(
             "https://images.unsplash.com/photo-1442458017215-285b83f65851",
@@ -58,7 +58,7 @@ object BaseListProvider {
         )
         val longText = "long long long long"
         repeat(imageList.size) {
-            list.add(TestItem.Item.Small(
+            list.add(Item.Card.Small(
                 nextString(),
                 imageList[it],
                 title = "Small $longText title: $it",
@@ -71,12 +71,12 @@ object BaseListProvider {
         return@run list
     }
 
-    fun getMediumItemSection(): MutableList<TestItem> = mediumItemSectionList ?: run {
-        val list = mutableListOf<TestItem>()
+    fun getMediumItemSection(): MutableList<Item> = mediumItemSectionList ?: run {
+        val list = mutableListOf<Item>()
 
-        list.add(TestItem.Space.Big)
-        list.add(TestItem.Header.Third)
-        list.add(TestItem.Space.Small)
+        list.add(Item.Space.Big)
+        list.add(Item.Header.Third)
+        list.add(Item.Space.Small)
 
         val imageList = listOf(
             "https://images.unsplash.com/photo-1552483777-6d0e5cc7e09f",
@@ -85,7 +85,7 @@ object BaseListProvider {
         )
 
         repeat(imageList.size) {
-            list.add(TestItem.Item.Medium(
+            list.add(Item.Card.Medium(
                 nextString(),
                 imageList[it],
                 title = "Medium title: $it",
@@ -98,12 +98,12 @@ object BaseListProvider {
         return@run list
     }
 
-    fun getBigItemSection(): MutableList<TestItem> = bigItemSectionList ?: run {
-        val list = mutableListOf<TestItem>()
+    fun getBigItemSection(): MutableList<Item> = bigItemSectionList ?: run {
+        val list = mutableListOf<Item>()
 
-        list.add(TestItem.Space.Big)
-        list.add(TestItem.Header.Fourth)
-        list.add(TestItem.Space.Medium)
+        list.add(Item.Space.Big)
+        list.add(Item.Header.Fourth)
+        list.add(Item.Space.Medium)
 
         val imageList = listOf(
             "https://images.unsplash.com/photo-1439405326854-014607f694d7",
@@ -113,7 +113,7 @@ object BaseListProvider {
         )
 
         repeat(imageList.size) {
-            list.add(TestItem.Item.Big(nextString(), imageList[it]))
+            list.add(Item.Card.Big(nextString(), imageList[it]))
         }
 
         bigItemSectionList = list

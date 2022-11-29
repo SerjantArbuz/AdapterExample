@@ -7,20 +7,20 @@ import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.DiffAdapter
 import sgtmelon.adapterexample.adapter.SimpleAdapter
 import sgtmelon.adapterexample.adapter.diff.TestDiff
-import sgtmelon.adapterexample.model.TestId.*
+import sgtmelon.adapterexample.model.ItemId.*
 
 /**
  * Model's for [SimpleAdapter] and [DiffAdapter].
  *
- * [id] - an unique string for identify item inside [TestDiff]/[DiffAdapter].
+ * [id] - is unique string for identify items inside [TestDiff]/[DiffAdapter].
  */
-sealed class TestItem(val id: String, val type: TestType) {
+sealed class Item(val id: String, val type: ItemType) {
 
     sealed class Header(
         id: String,
         @StringRes val titleId: Int,
         @StringRes val actionId: Int? = null,
-    ) : TestItem(id, TestType.HEADER) {
+    ) : Item(id, ItemType.HEADER) {
 
         object First : Header(HeaderId.FIRST, R.string.header_first)
         object Second : Header(HeaderId.SECOND, R.string.header_second, R.string.action_second)
@@ -28,7 +28,7 @@ sealed class TestItem(val id: String, val type: TestType) {
         object Fourth : Header(HeaderId.FOURTH, R.string.header_fourth, R.string.action_fourth)
     }
 
-    sealed class Space(id: String, @DimenRes val spaceId: Int) : TestItem(id, TestType.SPACE) {
+    sealed class Space(id: String, @DimenRes val spaceId: Int) : Item(id, ItemType.SPACE) {
 
         object Small : Space(SpaceId.SMALL, R.dimen.space_small)
         object Medium : Space(SpaceId.MEDIUM, R.dimen.space_medium)
@@ -40,7 +40,7 @@ sealed class TestItem(val id: String, val type: TestType) {
         val imageUrl: String,
         @StringRes val textId: Int,
         @ColorRes val colorId: Int,
-    ) : TestItem(id, TestType.BUTTON) {
+    ) : Item(id, ItemType.BUTTON) {
 
         class First(imageUrl: String) :
             Button(ButtonId.FIRST, imageUrl, R.string.button_first, R.color.button_first)
@@ -61,23 +61,23 @@ sealed class TestItem(val id: String, val type: TestType) {
             Button(ButtonId.SIXTH, imageUrl, R.string.button_sixth, R.color.button_sixth)
     }
 
-    sealed class Item(id: String, type: TestType) : TestItem(id, type) {
+    sealed class Card(id: String, type: ItemType) : Item(id, type) {
 
         data class Small(
             val uniqueId: String,
             val imageUrl: String,
             val title: String,
             val subtitle: String,
-        ) : Item(ItemId.SMALL.plus(uniqueId), TestType.ITEM_SMALL)
+        ) : Card(CardId.SMALL.plus(uniqueId), ItemType.ITEM_SMALL)
 
         data class Medium(
             val uniqueId: String,
             var imageUrl: String,
             var title: String,
             var subtitle: String,
-        ) : Item(ItemId.MEDIUM.plus(uniqueId), TestType.ITEM_MEDIUM)
+        ) : Card(CardId.MEDIUM.plus(uniqueId), ItemType.ITEM_MEDIUM)
 
         data class Big(val uniqueId: String, val imageUrl: String) :
-            Item(ItemId.BIG.plus(uniqueId), TestType.ITEM_BIG)
+            Card(CardId.BIG.plus(uniqueId), ItemType.ITEM_BIG)
     }
 }

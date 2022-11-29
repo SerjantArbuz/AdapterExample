@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.DiffAdapter
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 import sgtmelon.adapterexample.provider.DiffListProvider
 import sgtmelon.adapterexample.runMain
 import sgtmelon.adapterexample.showToast
@@ -65,12 +65,12 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (adapter.getItemList().getOrNull(position)) {
-                    is TestItem.Header -> oneColumn
-                    is TestItem.Space -> oneColumn
-                    is TestItem.Button -> threeColumns
-                    is TestItem.Item.Small -> oneColumn
-                    is TestItem.Item.Medium -> threeColumns
-                    is TestItem.Item.Big -> twoColumns
+                    is Item.Header -> oneColumn
+                    is Item.Space -> oneColumn
+                    is Item.Button -> threeColumns
+                    is Item.Card.Small -> oneColumn
+                    is Item.Card.Medium -> threeColumns
+                    is Item.Card.Big -> twoColumns
                     null -> oneColumn
                 }
             }
@@ -89,27 +89,27 @@ class DiffActivity : AppCompatActivity(), DiffAdapter.Callback {
         }
     }
 
-    private fun updateList(list: List<TestItem>) = adapter.notifyList(list)
+    private fun updateList(list: List<Item>) = adapter.notifyList(list)
 
     //region Adapter callback's
 
-    override fun onHeaderActionClick(item: TestItem.Header) {
+    override fun onHeaderActionClick(item: Item.Header) {
         showToast(text = "Click on header action: $item")
     }
 
-    override fun onButtonClick(item: TestItem.Button) {
+    override fun onButtonClick(item: Item.Button) {
         showToast(text = "Click on button: $item")
     }
 
-    override fun onItemClick(item: TestItem.Item.Small) {
+    override fun onItemClick(item: Item.Card.Small) {
         showToast(text = "Click on small card: ${item.title}")
     }
 
-    override fun onItemClick(item: TestItem.Item.Medium) {
+    override fun onItemClick(item: Item.Card.Medium) {
         showToast(text = "Click on medium card: ${item.title}")
     }
 
-    override fun onItemClick(item: TestItem.Item.Big) {
+    override fun onItemClick(item: Item.Card.Big) {
         showToast(text = "Click on big card")
     }
 

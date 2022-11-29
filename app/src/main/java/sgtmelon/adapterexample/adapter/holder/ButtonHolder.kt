@@ -9,10 +9,10 @@ import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.SimpleAdapter
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 
 /**
- * Holder for [TestItem.Button] inside [SimpleAdapter].
+ * Holder for [Item.Button] inside [SimpleAdapter].
  */
 class ButtonHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
@@ -21,7 +21,7 @@ class ButtonHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     private val imageView = itemView.findViewById<ImageView>(R.id.button_image)
     private val textView = itemView.findViewById<TextView>(R.id.button_text)
 
-    fun bind(item: TestItem.Button, callback: Callback) {
+    fun bind(item: Item.Button, callback: Callback) {
         cardContainer.setCardBackgroundColor(context.getColor(item.colorId))
         clickContainer.setOnClickListener { callback.onButtonClick(item) }
 
@@ -39,6 +39,6 @@ class ButtonHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     }
 
     interface Callback {
-        fun onButtonClick(item: TestItem.Button)
+        fun onButtonClick(item: Item.Button)
     }
 }

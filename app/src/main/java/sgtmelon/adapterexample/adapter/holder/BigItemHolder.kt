@@ -7,17 +7,17 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import sgtmelon.adapterexample.R
 import sgtmelon.adapterexample.adapter.SimpleAdapter
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 
 /**
- * Holder for [TestItem.Item.Big] inside [SimpleAdapter].
+ * Holder for [Item.Card.Big] inside [SimpleAdapter].
  */
 class BigItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
 
     private val clickContainer = itemView.findViewById<ViewGroup>(R.id.item_big_click_container)
     private val imageView = itemView.findViewById<ImageView>(R.id.item_big_image)
 
-    fun bind(item: TestItem.Item.Big, callback: Callback) {
+    fun bind(item: Item.Card.Big, callback: Callback) {
         clickContainer.setOnClickListener { callback.onItemClick(item) }
 
         Glide.with(context)
@@ -32,6 +32,6 @@ class BigItemHolder(itemView: View): ParentHolder(itemView), UnbindCallback {
     }
 
     interface Callback {
-        fun onItemClick(item: TestItem.Item.Big)
+        fun onItemClick(item: Item.Card.Big)
     }
 }

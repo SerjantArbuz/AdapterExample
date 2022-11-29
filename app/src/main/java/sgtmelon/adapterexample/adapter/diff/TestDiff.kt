@@ -1,12 +1,12 @@
 package sgtmelon.adapterexample.adapter.diff
 
 import sgtmelon.adapterexample.adapter.DiffAdapter
-import sgtmelon.adapterexample.model.TestItem
+import sgtmelon.adapterexample.model.Item
 
 /**
  * Diff for [DiffAdapter].
  */
-class TestDiff : ParentDiff<TestItem>() {
+class TestDiff : ParentDiff<Item>() {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldItem = getOldItem(oldItemPosition) ?: return false
