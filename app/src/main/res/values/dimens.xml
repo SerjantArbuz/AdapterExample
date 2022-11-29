@@ -3,6 +3,7 @@
 
     <dimen name="menu_vertical_margin">8dp</dimen>
     <dimen name="menu_horizontal_margin">16dp</dimen>
+    <dimen name="menu_list_padding">8dp</dimen>
 
     <dimen name="no_elevation">0dp</dimen>
 

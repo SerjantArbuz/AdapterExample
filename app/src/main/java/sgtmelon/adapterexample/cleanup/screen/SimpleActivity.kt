@@ -1,7 +1,5 @@
 package sgtmelon.adapterexample.cleanup.screen
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -88,7 +86,4 @@ class SimpleActivity : AppCompatActivity(), SimpleAdapter.Callback {
 
     //endregion
 
-    companion object {
-        operator fun get(context: Context): Intent = Intent(context, SimpleActivity::class.java)
-    }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="header_first">Header first</string>
+    <string name="header_second">Header second</string>
+    <string name="header_third">Header third</string>
+    <string name="header_fourth">Header fourth</string>
+
+    <string name="action_second">Action second</string>
+    <string name="action_fourth">Action fourth</string>
+
+    <string name="button_first">First btn</string>
+    <string name="button_second">Second btn</string>
+    <string name="button_third">Third btn</string>
+    <string name="button_fourth">Fourth btn</string>
+    <string name="button_fifth">Fifth btn</string>
+    <string name="button_sixth">Sixth btn</string>
+
+</resources>

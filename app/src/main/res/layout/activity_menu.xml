@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="@dimen/space_big"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/menu_simple_button"
-        android:text="@string/button_menu_simple"
-        android:textAllCaps="false"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/menu_diff_button"
-        android:text="@string/button_menu_diff"
-        android:textAllCaps="false"
-        android:layout_marginTop="@dimen/space_small"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menu_recycler"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:padding="@dimen/menu_list_padding"
+            tools:listitem="@layout/item_menu"
+            android:layout_height="match_parent" />
 
-</LinearLayout>
+    </FrameLayout>
+
+</layout>

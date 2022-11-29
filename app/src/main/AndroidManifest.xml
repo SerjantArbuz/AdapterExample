@@ -16,7 +16,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name="sgtmelon.adapterexample.cleanup.screen.MenuActivity"
+            android:name="sgtmelon.adapterexample.screen.MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,11 +26,11 @@
 
         <activity
             android:name="sgtmelon.adapterexample.cleanup.screen.SimpleActivity"
-            android:parentActivityName="sgtmelon.adapterexample.cleanup.screen.MenuActivity" />
+            android:parentActivityName="sgtmelon.adapterexample.screen.MenuActivity" />
 
         <activity
             android:name="sgtmelon.adapterexample.cleanup.screen.DiffActivity"
-            android:parentActivityName="sgtmelon.adapterexample.cleanup.screen.MenuActivity" />
+            android:parentActivityName="sgtmelon.adapterexample.screen.MenuActivity" />
 
     </application>
 
